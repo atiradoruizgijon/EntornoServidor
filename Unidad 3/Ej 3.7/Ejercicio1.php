@@ -26,6 +26,7 @@
      // V = PI*r*r*altura
      $radio = ($_REQUEST['diametro'] / 2);
      $volumen = $_REQUEST['altura'] * $radio * $radio * M_PI; 
+     
     ?>
     <p>El volumen del cilindro es de <?= $volumen ?></p>
 </body>

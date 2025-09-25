@@ -54,12 +54,7 @@
     /*Escribe un programa que muestre por pantalla 10 palabras en inglés junto a su correspondiente
     traducción al castellano. Las palabras deben estar distribuidas en dos columnas. Utiliza la etiqueta
     <table> de HTML.*/
-
-    echo "<table>";
-    echo "<tr>"
-    echo "<td></td>"
-    echo "</tr>"
-    echo "</table>";
+    
     ?>
 </body>
 </html>

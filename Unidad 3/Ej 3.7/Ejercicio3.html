@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="Ejercicio3.php" method="get">
+        <p>Elige el color de fondo de tu página: </p>
+        <input type="color" name="fondo">
+        <p>¿De que tamaño quieres las letras?
+            <select name="letraT">
+                <option value="10px">Pequeña</option>
+                <option value="20px">Mediana</option>
+                <option value="30px">Grande</option>
+            </select>
+        </p>
+        <p>Fuente de la letra: 
+            <select name="letraF">
+                <option value="sans-serif">Sans Serif</option>
+                <option value="'Courier New', Courier, monospace">Courier</option>
+            </select>
+        </p>
+        <p>
+            Imagen del banner:
+            <select name="Imagen">
+                <option value="imagenes/img1.jpg">Gato Siames</option>
+                <option value="imagenes/img2.jpg">Gato Calico</option>
+                <option value="imagenes/img3.jpg">Gato Negro</option>
+            </select>
+        </p>
+        <p>
+            Alineación del texto:
+            <select name="alinearT">
+                <option value="center">Centro</option>
+                <option value="left">Izquierda</option>
+                <option value="right">Derecha</option>
+            </select>
+        </p>
+        <p>
+            Alineación de la imagen del banner:
+            <select name="alinearI">
+                <option value="center">Centro</option>
+                <option value="left">Izquierda</option>
+                <option value="right">Derecha</option>
+            </select>
+        </p>
+        <p>
+            <input type="submit" value="Enviar">
+        </p>
+    </form>
+</body>
+
+</html>

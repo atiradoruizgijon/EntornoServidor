@@ -13,6 +13,8 @@
     echo ($a == $b) && ($c > $b), "<br>";
     echo ($a == $b) || ($b == $c), "<br>";
     echo !($b <= $c), "<br>";
+    // Nota: Si imprimimos un boolean, no saldrá true ni false
+    // saldrá 1 en caso de true y nada en caso de false
     ?>
 </body>
 

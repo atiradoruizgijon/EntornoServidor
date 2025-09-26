@@ -26,7 +26,7 @@
      $horas = intval($horas);
      $min = $min % 60;
     ?>
-    <p>El volumen del cilindro es de <?= $volumen ?></p>
+    <p>El volumen del cilindro es de <?= $volumen ?> cm<sup>3</sup></p>
     <p>Lo que tardará en llenarse el cilindro será: <?= $horas ?> horas y <?= $min ?> minutos</p>
 </body>
 </html>

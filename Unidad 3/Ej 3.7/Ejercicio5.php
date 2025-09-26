@@ -21,7 +21,7 @@
      $radio = ($_REQUEST['diametro'] / 2);
      $volumen = $_REQUEST['altura'] * $radio * $radio * M_PI;
      // 1 L = 1000 cm3
-     $min = ($volumen / 1000) * $_REQUEST['caudal'];
+     $min = ($volumen / 1000) / $_REQUEST['caudal'];
      $horas = $min / 60;
      $horas = intval($horas);
      $min = $min % 60;

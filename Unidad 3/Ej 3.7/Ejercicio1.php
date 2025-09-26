@@ -25,7 +25,8 @@
      // Lo almaceno todo en una variable para que no sea muy largo.
      // V = PI*r*r*altura
      $radio = ($_REQUEST['diametro'] / 2);
-     $volumen = $_REQUEST['altura'] * $radio * $radio * M_PI; 
+     $volumen = $_REQUEST['altura'] * $radio * $radio * M_PI;
+     // si hago $radio**2 es como elevado a 2
      
     ?>
     <p>El volumen del cilindro es de <?= $volumen ?></p>

@@ -4,19 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .numero{
+            width: 50px;
+        }
+    </style>
 </head>
 <body>
+    <p>Inserta tus numeros: </p>
     <form action="Ejercicio2.php" method="get">
         <table>
             <tr>
-                <td><input type="number" name="num1"></td>
-                <td><input type="number" name="num2"></td>
-                <td><input type="number" name="num3"></td>
-                <td><input type="number" name="num4"></td>
-                <td><input type="number" name="num5"></td>
-                <td><input type="number" name="num6"></td>
+                <td><input class="numero" type="number" name="num1"></td>
+                <td><input class="numero" type="number" name="num2"></td>
+                <td><input class="numero" type="number" name="num3"></td>
+                <td><input class="numero" type="number" name="num4"></td>
+                <td><input class="numero" type="number" name="num5"></td>
+                <td><input class="numero" type="number" name="num6"></td>
+                <td><input class="numero" type="number" name="numS"></td>
             </tr>
         </table>
+        <input type="submit" value="Enviar">
     </form>
 </body>
 </html>

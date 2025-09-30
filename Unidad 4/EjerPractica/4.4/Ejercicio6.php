@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Ejercicio 6
+    Muestra los números del 320 al 160, contando de 20 en 20 utilizando un bucle do-while. -->
+    <?php
+    $i = 360;
+    do {
+        echo ($i -= 20)." ";
+    } while ($i >= 180); 
+    ?>
+</body>
+</html>

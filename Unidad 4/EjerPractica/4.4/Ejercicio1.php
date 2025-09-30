@@ -6,6 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <!-- Ejercicio 1
+    Muestra los números múltiplos de 5 de 0 a 100 utilizando un bucle for. -->
+    <?php
+     for ($i=0; $i < 101; $i += 5) { 
+        echo "$i ";
+     } 
+    ?>
 </body>
-</html>l
+</html>

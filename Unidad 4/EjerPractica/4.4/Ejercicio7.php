@@ -14,31 +14,36 @@ la combinación para abrirla. Si no acertamos, se nos mostrará el mensaje “Lo
 si acertamos se nos dirá “La caja fuerte se ha abierto satisfactoriamente”. Tendremos cuatro oportunidades para
 abrir la caja fuerte. -->
     <?php
-    if (!isset($_REQUEST['$codigoIn'])) {
+    $codigoCaja = 2424;
+    if (!isset($_REQUEST['codigoIn'])) {
         $intentos = 4;
-        $codigoCaja = rand(0, 9999);
         $codigoIn = -1;
     } else {
-        $intentos = $_POST['intentos'];
-        $codigoCaja = $_POST['codigoCaja'];
-        $codigoIn = $_POST['codigoIn'];
+        $intentos = $_REQUEST['intentos'];
+        $codigoIn = $_REQUEST['codigoIn'];
     }
     if ($codigoIn == $codigoCaja) {
-            echo "La caja fuerte se ha abierdo satisfactoriamente<br>";
-            echo "El código era: $codigoCaja";
+        echo "La caja fuerte se ha abierdo satisfactoriamente<br>";
+        echo "El código era: $codigoCaja";
+    } else {
+        if ($intentos == 0) {
+            echo "Lo siento, no tienes más oportunidades.<br>";
         } else {
-            echo "Código erróneo.";
+            if ($intentos < 4) {
+                echo "Código erróneo.";
+            }
+            echo "<hr>$intentos<hr>";
     ?>
-    <p>Introduce el código de la caja fuerte. Te quedan <?= $intentos-- ?></p>
-    <form action="Ejercicio7.php" method="post">
-        <input type="number" name="codigoIn" min="0" max="9999" autofocus>
-        <input type="hidden" name="codigoCaja" value="<?= $codigoCaja ?>">
-        <input type="hidden" name="intentos" value="<?= $intentos ?>">
-        <input type="submit" value="Validar">
-    </form>
-    <!-- Aqui termina el else -->
+            <p>Introduce el código de la caja fuerte. Te quedan <?= $intentos-- ?></p>
+            <form action="Ejercicio7.php" method="get">
+                <input type="number" name="codigoIn" min="0" max="9999" autofocus>
+                <input type="hidden" name="intentos" value="<?= $intentos ?>">
+                <input type="submit" value="Validar">
+            </form>
+            <!-- Aqui termina los else -->
     <?php
         }
+    }
     ?>
 </body>
 

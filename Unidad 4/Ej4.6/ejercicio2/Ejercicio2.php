@@ -21,6 +21,7 @@
     </style>
 </head>
 <body>
+    <h2>Lotería, escoge tus números:</h2>
     <form action="resultado.php" method="post">
         <table>
             <tr>

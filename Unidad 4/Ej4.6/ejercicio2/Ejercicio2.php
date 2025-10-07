@@ -59,6 +59,41 @@
                 <td><input type="checkbox" name="n24" value="24">24</td>
                 <td><input type="checkbox" name="n25" value="25">25</td>
             </tr>
+            <tr>
+                <td><input type="checkbox" name="n21" value="26">26</td>
+                <td><input type="checkbox" name="n22" value="27">27</td>
+                <td><input type="checkbox" name="n23" value="28">28</td>
+                <td><input type="checkbox" name="n24" value="29">29</td>
+                <td><input type="checkbox" name="n25" value="30">30</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="n21" value="31">31</td>
+                <td><input type="checkbox" name="n22" value="32">32</td>
+                <td><input type="checkbox" name="n23" value="33">33</td>
+                <td><input type="checkbox" name="n24" value="34">34</td>
+                <td><input type="checkbox" name="n25" value="35">35</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="n21" value="36">36</td>
+                <td><input type="checkbox" name="n22" value="37">37</td>
+                <td><input type="checkbox" name="n23" value="38">38</td>
+                <td><input type="checkbox" name="n24" value="39">39</td>
+                <td><input type="checkbox" name="n25" value="40">40</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="n21" value="41">41</td>
+                <td><input type="checkbox" name="n22" value="42">42</td>
+                <td><input type="checkbox" name="n23" value="43">43</td>
+                <td><input type="checkbox" name="n24" value="44">44</td>
+                <td><input type="checkbox" name="n25" value="45">45</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="n21" value="46">46</td>
+                <td><input type="checkbox" name="n22" value="47">47</td>
+                <td><input type="checkbox" name="n23" value="48">48</td>
+                <td><input type="checkbox" name="n24" value="49">49</td>
+                <td><input type="checkbox" name="n25" value="50">50</td>
+            </tr>
         </table>
         <input type="submit" value="Comprobar">
     </form>

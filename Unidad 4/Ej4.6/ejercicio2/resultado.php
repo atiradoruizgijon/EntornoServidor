@@ -24,13 +24,13 @@
 
 <body>
     <?php
-    $numeroPremiado1 = rand(1, 25);
-    $numeroPremiado2 = rand(1, 25);
-    $numeroPremiado3 = rand(1, 25);
-    $numeroPremiado4 = rand(1, 25);
-    $numeroPremiado5 = rand(1, 25);
-    $numeroPremiado6 = rand(1, 25);
-    $numeroPremiado6 = rand(1, 25);
+    $numeroPremiado1 = rand(1, 50);
+    $numeroPremiado2 = rand(1, 50);
+    $numeroPremiado3 = rand(1, 50);
+    $numeroPremiado4 = rand(1, 50);
+    $numeroPremiado5 = rand(1, 50);
+    $numeroPremiado6 = rand(1, 50);
+    $numeroPremiado6 = rand(1, 50);
     echo "<table>";
     ?>
         <p>Numeros premiados</p>
@@ -46,27 +46,27 @@
         <?php
         $aciertos = 0;
     if (isset($_REQUEST['n' . $numeroPremiado1])) {
-        echo "<td>${numeroPremiado1}</td>";
+        echo "<td>$numeroPremiado1</td>";
         $aciertos++;
     }
     if (isset($_REQUEST['n' . $numeroPremiado2])) {
-        echo "<td>${numeroPremiado2}</td>";
+        echo "<td>$numeroPremiado2</td>";
         $aciertos++;
     }
     if (isset($_REQUEST['n' . $numeroPremiado3])) {
-        echo "<td>${numeroPremiado3}</td>";
+        echo "<td>$numeroPremiado3</td>";
         $aciertos++;
     }
     if (isset($_REQUEST['n' . $numeroPremiado4])) {
-        echo "<td>${numeroPremiado4}</td>";
+        echo "<td>$numeroPremiado4</td>";
         $aciertos++;
     }
     if (isset($_REQUEST['n' . $numeroPremiado5])) {
-        echo "<td>${numeroPremiado5}</td>";
+        echo "<td>$numeroPremiado5</td>";
         $aciertos++;
     }
     if (isset($_REQUEST['n' . $numeroPremiado6])) {
-        echo "<td>${numeroPremiado6}</td>";
+        echo "<td>$numeroPremiado6</td>";
         $aciertos++;
     }
     ?>

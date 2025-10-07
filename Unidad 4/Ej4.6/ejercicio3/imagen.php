@@ -6,10 +6,9 @@
     <title>Document</title>
     <?php
         $cuadro = "cuadro".$_REQUEST['cuadro'];
-        $intentos = $_GET['intentos'];
-        $intentos++;
+        $intentos = $_REQUEST['intentos'];
     ?>
-    <meta http-equiv="Refresh" content="2;url=Ejercicio1.php?intentos=<?= $intentos ?>">
+    <meta http-equiv="Refresh" content="2;url=Ejercicio3.php?intentos=<?=++$intentos?>">
     <style>
         body{
             text-align: center;

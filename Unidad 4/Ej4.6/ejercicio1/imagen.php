@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- despues de unos segundos te devuelve a la pagina que tu pongas -->
     <meta http-equiv="Refresh" content="2;url=Ejercicio1.php">
     <?php
-        $cuadro = "cuadro".$_REQUEST['cuadro']
+        $cuadro = "cuadro".$_REQUEST['cuadro'];
     ?>
     <style>
         body{

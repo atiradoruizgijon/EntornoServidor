@@ -15,12 +15,18 @@
         table {
             border-collapse: collapse;
             margin: auto;
+            border: 1px solid black;
+            box-shadow: 0px 0px 50px lightslategray;
         }
 
-        td,
-        tr {
-            border: solid 1px black;
+        td, tr {
             padding: 10px;
+        }
+        tr:nth-child(odd) {
+            background-color: lightblue;
+        }
+        tr:nth-child(even) {
+            background-color: lightyellow;
         }
     </style>
 </head>

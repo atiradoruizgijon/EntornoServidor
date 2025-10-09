@@ -33,6 +33,7 @@
     if (isset($_REQUEST['bloque']) && isset($_REQUEST['piso'])) {
         $bloque = $_REQUEST['bloque'];
         $piso = $_REQUEST['piso'];
+        
         echo "<h2>Has llamado al piso $piso del bloque $bloque</h2>";
     }
     ?>

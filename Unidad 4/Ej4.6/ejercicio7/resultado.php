@@ -15,27 +15,36 @@
         table {
             border-collapse: collapse;
             margin: auto;
+            border: 1px solid black;
+            box-shadow: 0px 0px 50px lightslategray;
         }
 
         td,
         tr {
-            border: solid 1px black;
             padding: 10px;
         }
-        .acertados{
+
+        tr:nth-child(odd) {
+            background-color: lightblue;
+        }
+
+        tr:nth-child(even) {
+            background-color: lightyellow;
+        }
+
+        .acertados {
             color: greenyellow;
-            /* Si no pongo esto, las letras grises no se ven bien: */
-            filter: drop-shadow(black 2px 2px);
         }
-        .fallados{
+
+        .fallados {
             color: red;
-            filter: drop-shadow(black 2px 2px);
         }
-        .nada{
+
+        .nada {
             color: grey;
-            filter: drop-shadow(black 2px 2px);
         }
-        .noAcertados{
+
+        .noAcertados {
             color: black;
         }
     </style>
@@ -90,7 +99,7 @@
 
     $seleccionados = 0;
     for ($i = 0; $i < count($_REQUEST); $i++) {
-            $seleccionados++;
+        $seleccionados++;
     }
     if ($seleccionados > 6) {
         echo "Has hecho trampa, solo puedes seleccionar 6.";
@@ -121,14 +130,17 @@
         </table>
         <h2>Aciertos: <?= $aciertos ?></h2>
     <?php
-        if ($aciertos == 4) {
-            echo "Has conseguido tu dinero de vuelta.";
-        }
-        if ($aciertos == 5) {
-            echo "Has conseguido 30€.";
-        }
-        if ($aciertos == 6) {
-            echo "Has conseguido 100€.";
+
+        switch ($aciertos) {
+            case 4:
+                echo "Has conseguido tu dinero de vuelta.";
+                break;
+            case 5:
+                echo "Has conseguido 30€.";
+                break;
+            case 6:
+                echo "Has conseguido 100€.";
+                break;
         }
 
         // Final del else:

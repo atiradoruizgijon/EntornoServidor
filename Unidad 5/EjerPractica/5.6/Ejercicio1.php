@@ -31,7 +31,11 @@
         $cuadrado[$i] = $numero[$i] * $numero[$i];
         $cubo[$i] = $numero[$i] * $numero[$i] * $numero[$i];
 
-        echo "<tr><td>$numero[$i]</td><td>$cuadrado[$i]</td><td>$cubo[$i]</td></tr>";
+        echo "<tr>
+        <td>$numero[$i]</td>
+        <td>$cuadrado[$i]</td>
+        <td>$cubo[$i]</td>
+        </tr>";
       }
     ?>
     </table>

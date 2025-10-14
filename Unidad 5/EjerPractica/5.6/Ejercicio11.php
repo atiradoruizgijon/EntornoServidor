@@ -9,13 +9,8 @@
 
 <body>
     <?php
-    if (isset($_REQUEST['arrayPalabras'])) {
-        $palabras = $_REQUEST['arrayPalabras'];
-        if (isset($_REQUEST['nueva'])) {
-            array_push($palabras, [$_REQUEST['palabra'], $_REQUEST['nueva']]);
-        }
-    } else {
-        $palabras = [
+    if (!isset($_REQUEST['diccionario'])) {
+        $diccionario = [
             "gato" => "cat",
             "silla" => "chair",
             "pantalla" => "screen",
@@ -24,24 +19,28 @@
             "navegador" => "browser",
             "tiempo" => "time"
         ];
-    }
-    if (isset($_REQUEST['palabra'])) {
-        $traducida = false;
-
-        foreach ($palabras as $esp => $ing) {
-            if ($_REQUEST['palabra' == $esp]) {
-                echo "<p>$esp en inglés es: $ing</p>";
-                $traducida = true;
-            }
+    } else {
+        # En vez de usar explode e implode usa esto:
+        $diccionario = unserialize(base64_decode($_REQUEST['diccionario']));
+        if (isset($_REQUEST['espanol'])) {
+            $diccionario[$_REQUEST['espanol']] = $_REQUEST['ingles'];
         }
-        if (!$traducida) {
+    }
+    $cadena = base64_encode(serialize($diccionario));
+    
+
+    if (isset($_REQUEST['palabra'])) {
+        $palabra = $_REQUEST['palabra'];
+        if (isset($diccionario[$palabra])) {
+            echo "$palabra en inglés es $diccionario[$palabra]";
+        } else {
     ?>
             <p>La palabra introducida no está en el Diccionario</p>
             <p>Introduce su traducción al inglés para añadirla:</p>
             <form action="" method="get">
-                <input type="text" name="nueva">
-                <input type="hidden" name="arrayPalabras" value="<?= $palabras ?>">
-                <input type="hidden" name="palabra" value="<?= $palabra ?>">
+                <input type="text" name="ingles">
+                <input type="text" name="espanol" value="<?= $palabra ?>">
+                <input type="hidden" name="diccionario" value="<?= $cadena ?>">
                 <input type="submit" value="Introducir">
             </form>
     <?php
@@ -55,7 +54,7 @@
     <form action="" method="get">
         <label for="palabra">Palabra</label>
         <input type="text" name="palabra">
-        <input type="hidden" name="arrayPalabras" value="<?= $palabras ?>">
+        <input type="hidden" name="diccionario" value="<?= $cadena ?>">
         <input type="submit" value="Comprobar">
     </form>
 </body>

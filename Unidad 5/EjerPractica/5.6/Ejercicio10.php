@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <?php
     # Primero pondré las que puntuan.
@@ -15,21 +17,21 @@
     $baraja["Rey de bastos"] = "4 Puntos";
     $baraja["Caballo de bastos"] = "3 Puntos";
     $baraja["Sota de bastos"] = "2 Puntos";
-      
+
     # Copas
     $baraja["As de copas"] = "11 Puntos";
     $baraja["3 de copas"] = "10 Puntos";
     $baraja["Rey de copas"] = "4 Puntos";
     $baraja["Caballo de copas"] = "3 Puntos";
     $baraja["Sota copas"] = "2 Puntos";
-    
+
     # Oros
     $baraja["As de oros"] = "11 Puntos";
     $baraja["3 de oros"] = "10 Puntos";
     $baraja["Rey de oros"] = "4 Puntos";
     $baraja["Caballo de oros"] = "3 Puntos";
     $baraja["Sota de oros"] = "2 Puntos";
-    
+
     # Espadas
     $baraja["As de espadas"] = "11 Puntos";
     $baraja["3 de espadas"] = "10 Puntos";
@@ -60,18 +62,15 @@
     $baraja["4 de Espadas"] = "";
     $baraja["2 de Espadas"] = "";
 
-    if (!isset($_REQUEST['numCartas'])) {
-        echo "¿Cuántas cartas quieres coger?";
-    } else {
-        foreach ($cartasEscogidas as $carta => $puntos) {
+    $contador = 0;
+    foreach ($baraja as $carta => $puntos) {
+        $numero = rand(0, 1);
+        if ($numero == 1 && $contador < 10) {
             echo "$carta --> $puntos <br>";
+            $contador++;
         }
     }
     ?>
-
-    <form action="">
-        <input type="number" min="0" max="40" name="numCartas">
-        <input type="submit" value="Echar cartas">
-    </form>
 </body>
+
 </html>

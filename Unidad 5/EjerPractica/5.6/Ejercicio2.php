@@ -18,12 +18,12 @@
         }
         if ($contador == 10) {
             $numeroTexto = substr($numeroTexto, 1);
-            $numeroTexto = explode(" ", $numeroTexto);
+            $array = explode(" ", $numeroTexto);
 
-            $minimo = 100;
-            $maximo = 0;
+            $minimo = PHP_INT_MAX;
+            $maximo = PHP_INT_MIN;
             echo "Los números introducidos son:<br>";
-            foreach ($numeroTexto as $value) {
+            foreach ($array as $value) {
                 if ($value < $minimo) {
                     $minimo = $value;
                 }
@@ -31,13 +31,13 @@
                     $maximo = $value;
                 }
             }
-            foreach ($numeroTexto as $value) {
+            foreach ($array as $value) {
                 if ($value == $minimo) {
-                    echo " $value (MÍNIMO) -";
+                    echo " $value (MÍNIMO) <br>";
                 } else if ($value == $maximo) {
-                    echo " $value (MAXIMO) -";
+                    echo " $value (MAXIMO) <br>";
                 } else {
-                    echo " $value -";
+                    echo " $value <br>";
                 }
             }
         }

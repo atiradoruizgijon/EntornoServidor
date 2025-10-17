@@ -47,11 +47,11 @@
 <body>
     <div>
         <?php
-        
         if (isset($_REQUEST['cadenaArray'])) {
             $personas = unserialize(base64_decode($_REQUEST['cadenaArray']));
         }
         
+        // print_r($array) para ver los valores del array y ver que va todo bien
         if (!isset($personas)) {
             $personas = [
                 ['nombre' => 'Anita', 'sexo' => 'm', 'orientacion' => 'bis'],

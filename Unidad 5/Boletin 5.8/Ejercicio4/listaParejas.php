@@ -36,6 +36,7 @@
             border: 2px solid #000;
             padding: 10px
         }
+
         tr:nth-child(odd) {
             background-color: lightblue;
         }
@@ -126,7 +127,7 @@
                 } else {
                     echo "<tr>";
                 }
-                
+
                 foreach ($personas[$i] as $persona => $datos) {
                     if ($datos == "het") echo "<td>Heterosexual</td>";
                     else if ($datos == "hom") echo "<td>Homosexual</td>";
@@ -146,7 +147,52 @@
                 echo "</tr>";
             }
             echo "</table>";
+
+            // Tabla de parejas:
+            echo "<table>";
+            echo "<tr>
+            <td>Nombre</td>
+            <td>Sexo</td>
+            <td>Orientación</td>
+            </tr>";
+
+
+            // meto a las personas compatibles en un array
+            $compatibles = [];
+
+
+            // arreglar tema de array
+            for ($i=0; $i < count($personas); $i++) { 
+                foreach ($personas[$i] as $persona => $datos) {
+                    if ($personaSeleccionada['sexo'] == $personas[$i]['sexo'] && ($personas[$i]['orientacion'] == $personaSeleccionada['orientacion'] || $personas[$i]['orientacion'] == 'bis')) {
+                        $compatibles[] = $personas[$i];
+                    }
+                    if ($personaSeleccionada['sexo'] != $personas[$i]['sexo'] && ($personas[$i]['orientacion'] == $personaSeleccionada['orientacion'] || $personas[$i]['orientacion'] == 'bis')) {
+                        $compatibles[] = $personas[$i];
+                    }
+                }
+            }
+
+            // for ($i = 0; $i < count($compatibles); $i++) {
+            //     foreach ($compatibles[$i] as $persona => $datos) {
+            //         if ($datos == "het") echo "<td>Heterosexual</td>";
+            //         else if ($datos == "hom") echo "<td>Homosexual</td>";
+            //         else if ($datos == "bis") echo "<td>Bisexual</td>";
+            //         else if ($datos == "m") echo "<td>Mujer</td>";
+            //         else if ($datos == "h") echo "<td>Hombre</td>";
+            //         else echo "<td>$datos</td>";
+            //     }
+            //     echo "<td>
+            //     <form action='parejaFormada.php' method='post'>
+            //         <input type='submit' value='Formar Pareja'>
+            //     </form>
+            //     </td>";
+            //     echo "</tr>";
+            // }
+            echo "</table>";
         }
+
+
         ?>
 
     </main>

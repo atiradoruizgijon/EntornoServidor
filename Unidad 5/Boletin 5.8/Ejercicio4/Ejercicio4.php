@@ -10,16 +10,19 @@
             font-family: sans-serif;
             font-size: 20px;
         }
+
         ul {
             list-style-type: none;
-            border: 2px solid black;
+            border: 2px solid #000;
             padding: 15px;
             width: fit-content;
         }
+
         form {
             display: block;
             width: fit-content;
         }
+
         ul li {
             margin: 10px 5px;
         }
@@ -27,30 +30,54 @@
         table {
             font-size: 1em;
             border-collapse: collapse;
-            float: right;
         }
-
+        tr:nth-child(odd) {
+            background-color: lightblue;
+        }
         td {
-            border: 2px solid black;
+            border: 2px solid #000;
             padding: 10px;
         }
-        div {
-            width: 50%;
+
+        main > div {
+            width: fit-content;
+            display: flex;
+            gap: 20px;
+            flex-direction: column;
+        }
+
+        main {
+            width: fit-content;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
             margin: auto;
         }
+
         tr:first-child {
-            background-color: lightgrey;
+            background-color: #d3d3d3;
+        }
+
+        .terminar__input {
+            padding: 20px;
+            font-size: 1.5em;
+        }
+
+        .terminar {
+            display: block;
+            width: 100%;
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
-    <div>
+    <main>
         <?php
         if (isset($_REQUEST['cadenaArray'])) {
             $personas = unserialize(base64_decode($_REQUEST['cadenaArray']));
         }
-        
+
         // print_r($array) para ver los valores del array y ver que va todo bien
         if (!isset($personas)) {
             $personas = [
@@ -68,13 +95,13 @@
                 ['nombre' => 'Mike', 'sexo' => 'h', 'orientacion' => 'hom']
             ];
         }
-        
+
         if (isset($_REQUEST['nombre'])) {
             $personas[] = ['nombre' => $_REQUEST['nombre'], 'sexo' => $_REQUEST['sexo'], 'orientacion' => $_REQUEST['orientacion']];
         }
-        
+
         $cadenaArray = base64_encode(serialize($personas));
-        
+
         echo "<table>";
         echo "<tr>
         <td>Nombre</td>
@@ -95,33 +122,38 @@
         }
         echo "</table>";
         ?>
-        
-        <form action="" method="post">
-            <ul>
-                <li>
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" name="nombre" required>
-                </li>
-                <li>
-                    <label for="sexo">Sexo:</label>
-                    <input type="radio" name="sexo" value="m" required>M
-                    <input type="radio" name="sexo" value="h" required>H
-                </li>
-                <li>
-                    <label for="orientacion">Orientación</label>
-                    <select name="orientacion" required>
-                        <option value="het">Heterosexual</option>
-                        <option value="hom">Homosexual</option>
-                        <option value="bis">Bisexual</option>
-                    </select>
-                </li>
-                <li>
-                    <input type="submit" value="Añadir">
-                </li>
-            </ul>
-            <input type="hidden" name="cadenaArray" value="<?= $cadenaArray ?>">
-        </form>
-    </div>
+        <div>
+            <form action="" method="post">
+                <ul>
+                    <li>
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" name="nombre" required>
+                    </li>
+                    <li>
+                        <label for="sexo">Sexo:</label>
+                        <input type="radio" name="sexo" value="m" required>M
+                        <input type="radio" name="sexo" value="h" required>H
+                    </li>
+                    <li>
+                        <label for="orientacion">Orientación</label>
+                        <select name="orientacion" required>
+                            <option value="het">Heterosexual</option>
+                            <option value="hom">Homosexual</option>
+                            <option value="bis">Bisexual</option>
+                        </select>
+                    </li>
+                    <li>
+                        <input type="submit" value="Añadir">
+                    </li>
+                </ul>
+                <input type="hidden" name="cadenaArray" value="<?= $cadenaArray ?>">
+            </form>
+            <form class="terminar" action="listaParejas.php" method="post">
+                <input class="terminar__input" type="submit" value="Terminar">
+                <input type="hidden" name="cadenaArray" value="<?= $cadenaArray ?>">
+            </form>
+        </div>
+    </main>
 </body>
 
 </html>

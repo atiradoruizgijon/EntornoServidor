@@ -149,7 +149,7 @@
             echo "</table>";
 
             // Tabla de parejas:
-            echo "<table>";
+            echo "<table style='display: inline;'>";
             echo "<tr>
             <td>Nombre</td>
             <td>Sexo</td>
@@ -162,39 +162,49 @@
 
 
             // arreglar tema de array
-            for ($i=0; $i < count($personas); $i++) { 
+            for ($i = 0; $i < count($personas); $i++) {
                 foreach ($personas[$i] as $persona => $datos) {
-                    if ($personaSeleccionada['sexo'] == $personas[$i]['sexo'] && ($personas[$i]['orientacion'] == $personaSeleccionada['orientacion'] || $personas[$i]['orientacion'] == 'bis')) {
-                        $compatibles[] = $personas[$i];
+                    // Si son del mismo sexo:
+                    if ($personaSeleccionada['sexo'] == $personas[$i]['sexo']) { 
+                        // Compruebo si son homosexual o bisexual
+                        if (($personaSeleccionada['orientacion'] == 'bis' || $personaSeleccionada['orientacion'] == 'hom') && ($personas[$i]['orientacion'] == 'bis' || $personas[$i]['orientacion'] == 'hom')) {
+                            if (!in_array($personas[$i], $compatibles)) $compatibles[] = $personas[$i];
+                        }
                     }
+                    // Si son de distinto sexo
                     if ($personaSeleccionada['sexo'] != $personas[$i]['sexo'] && ($personas[$i]['orientacion'] == $personaSeleccionada['orientacion'] || $personas[$i]['orientacion'] == 'bis')) {
-                        $compatibles[] = $personas[$i];
+                        // Compruebo si son heterosexual o bisexual
+                        if (($personaSeleccionada['orientacion'] == 'bis' || $personaSeleccionada['orientacion'] == 'het') && ($personas[$i]['orientacion'] == 'bis' || $personas[$i]['orientacion'] == 'het')) {
+                            if (!in_array($personas[$i], $compatibles)) $compatibles[] = $personas[$i];
+                        }
                     }
                 }
             }
 
-            // for ($i = 0; $i < count($compatibles); $i++) {
-            //     foreach ($compatibles[$i] as $persona => $datos) {
-            //         if ($datos == "het") echo "<td>Heterosexual</td>";
-            //         else if ($datos == "hom") echo "<td>Homosexual</td>";
-            //         else if ($datos == "bis") echo "<td>Bisexual</td>";
-            //         else if ($datos == "m") echo "<td>Mujer</td>";
-            //         else if ($datos == "h") echo "<td>Hombre</td>";
-            //         else echo "<td>$datos</td>";
-            //     }
-            //     echo "<td>
-            //     <form action='parejaFormada.php' method='post'>
-            //         <input type='submit' value='Formar Pareja'>
-            //     </form>
-            //     </td>";
-            //     echo "</tr>";
-            // }
+            for ($i = 0; $i < count($compatibles); $i++) {
+                foreach ($compatibles[$i] as $persona => $datos) {
+                    if ($datos == "het") echo "<td>Heterosexual</td>";
+                    else if ($datos == "hom") echo "<td>Homosexual</td>";
+                    else if ($datos == "bis") echo "<td>Bisexual</td>";
+                    else if ($datos == "m") echo "<td>Mujer</td>";
+                    else if ($datos == "h") echo "<td>Hombre</td>";
+                    else echo "<td>$datos</td>";
+                }
+                $parejaSelec = base64_encode(serialize($compatibles[$i]));
+                echo "<td>
+                <form action='parejaFormada.php' method='post'>
+                    <input type='hidden' name='parejaSelec' value='$parejaSelec'>
+                    <input type='hidden' name='personaSelec' value='$personaSelec'>
+                    <input type='submit' value='Formar Pareja'>
+                </form>
+                </td>";
+                echo "</tr>";
+            }
             echo "</table>";
         }
 
 
         ?>
-
     </main>
 </body>
 

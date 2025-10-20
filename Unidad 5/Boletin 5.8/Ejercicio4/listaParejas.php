@@ -102,8 +102,8 @@
                 $personaSelec = base64_encode(serialize($personas[$i]));
                 echo "<td>
                 <form action='' method='post'>
-                    <input type='hidden' name='cadenaArray' value='<?= $cadenaArray ?>'>
-                    <input type='hidden' name='personaSelec' value='<?= " . $personaSelec . " ?>'>
+                    <input type='hidden' name='cadenaArray' value='$cadenaArray'>
+                    <input type='hidden' name='personaSelec' value='$personaSelec'>
                     <input type='submit' value='Parejas'>
                 </form>
                 </td>";
@@ -111,7 +111,9 @@
             }
             echo "</table>";
         } else {
+            // $personaSeleccionada es el array
             $personaSeleccionada = unserialize(base64_decode($_REQUEST['personaSelec']));
+            // $personaSelec es la cadena que se serializa
 
             echo "<table>";
             echo "<tr>
@@ -139,14 +141,16 @@
                 $personaSelec = base64_encode(serialize($personas[$i]));
                 echo "<td>
                 <form action='' method='post'>
-                    <input type='hidden' name='cadenaArray' value='<?= $cadenaArray ?>'>
-                    <input type='hidden' name='personaSelec' value='<?= " . $personaSelec . " ?>'>
+                    <input type='hidden' name='cadenaArray' value='$cadenaArray'>
+                    <input type='hidden' name='personaSelec' value='$personaSelec'>
                     <input type='submit' value='Parejas'>
                 </form>
                 </td>";
                 echo "</tr>";
             }
             echo "</table>";
+
+            $personaSelec = base64_encode(serialize($personaSeleccionada));
 
             // Tabla de parejas:
             echo "<table style='display: inline;'>";
@@ -165,14 +169,14 @@
             for ($i = 0; $i < count($personas); $i++) {
                 foreach ($personas[$i] as $persona => $datos) {
                     // Si son del mismo sexo:
-                    if ($personaSeleccionada['sexo'] == $personas[$i]['sexo']) { 
+                    if ($personaSeleccionada['sexo'] == $personas[$i]['sexo'] && $personaSeleccionada != $personas[$i]) { 
                         // Compruebo si son homosexual o bisexual
                         if (($personaSeleccionada['orientacion'] == 'bis' || $personaSeleccionada['orientacion'] == 'hom') && ($personas[$i]['orientacion'] == 'bis' || $personas[$i]['orientacion'] == 'hom')) {
                             if (!in_array($personas[$i], $compatibles)) $compatibles[] = $personas[$i];
                         }
                     }
                     // Si son de distinto sexo
-                    if ($personaSeleccionada['sexo'] != $personas[$i]['sexo'] && ($personas[$i]['orientacion'] == $personaSeleccionada['orientacion'] || $personas[$i]['orientacion'] == 'bis')) {
+                    if ($personaSeleccionada['sexo'] != $personas[$i]['sexo'] && $personaSeleccionada != $personas[$i]) {
                         // Compruebo si son heterosexual o bisexual
                         if (($personaSeleccionada['orientacion'] == 'bis' || $personaSeleccionada['orientacion'] == 'het') && ($personas[$i]['orientacion'] == 'bis' || $personas[$i]['orientacion'] == 'het')) {
                             if (!in_array($personas[$i], $compatibles)) $compatibles[] = $personas[$i];
@@ -180,6 +184,8 @@
                     }
                 }
             }
+
+            $cadenaCompatibles = base64_encode(serialize($compatibles));
 
             for ($i = 0; $i < count($compatibles); $i++) {
                 foreach ($compatibles[$i] as $persona => $datos) {
@@ -190,11 +196,12 @@
                     else if ($datos == "h") echo "<td>Hombre</td>";
                     else echo "<td>$datos</td>";
                 }
-                $parejaSelec = base64_encode(serialize($compatibles[$i]));
+                
                 echo "<td>
                 <form action='parejaFormada.php' method='post'>
-                    <input type='hidden' name='parejaSelec' value='$parejaSelec'>
                     <input type='hidden' name='personaSelec' value='$personaSelec'>
+                    <input type='hidden' name='cadenaArray' value='$cadenaCompatibles'>
+                    <input type='hidden' name='parejaSelec' value='$i'>
                     <input type='submit' value='Formar Pareja'>
                 </form>
                 </td>";

@@ -31,15 +31,17 @@
             font-size: 1em;
             border-collapse: collapse;
         }
+
         tr:nth-child(odd) {
             background-color: lightblue;
         }
+
         td {
             border: 2px solid #000;
             padding: 10px;
         }
 
-        main > div {
+        main>div {
             width: fit-content;
             display: flex;
             gap: 20px;
@@ -74,6 +76,13 @@
 <body>
     <main>
         <?php
+
+        // Por si quiero mandar directamente hacia atrás
+        // en caso de que no se mande nada
+        // if (!isset($_REQUEST['personas'])) {
+        //     header("location:Ejercicio4.php");
+        // }
+
         if (isset($_REQUEST['cadenaArray'])) {
             $personas = unserialize(base64_decode($_REQUEST['cadenaArray']));
         }
@@ -148,6 +157,13 @@
                 </ul>
                 <input type="hidden" name="cadenaArray" value="<?= $cadenaArray ?>">
             </form>
+
+            <!-- Puedo hacer también:
+            <input type="text" name="nueva[nombre]">
+            <input type="ratio" name="nueva[sexo]" value="m">
+            <input type="ratio" name="nueva[orientacion]" value="het">
+            Y esto te lo añade directamente en un array -->
+
             <form class="terminar" action="listaParejas.php" method="post">
                 <input class="terminar__input" type="submit" value="Terminar">
                 <input type="hidden" name="cadenaArray" value="<?= $cadenaArray ?>">

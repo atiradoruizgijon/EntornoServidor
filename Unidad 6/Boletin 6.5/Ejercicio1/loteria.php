@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
     {
         foreach ($array as $key => $value) {
             if ($array[$key] == "") {
-                $array[$key] == rand(1, 49);
+                $array[$key] = rand(1, 49);
             }
         }
     }
@@ -31,18 +31,20 @@
         echo "</table>";
     }
 
+    if (!isset($_REQUEST['numEle'])) {
+        header('location:Ejercicio1.php');
+    }
+
     // Recojo los numeros introducidos
     $numElegidos = $_REQUEST['numEle'];
-
-    print_r($numElegidos);
     
     combinacion($numElegidos);
-    
-    print_r($numElegidos);
+
     // Generar un numero de serie si no se ha introducido ninguno
     if ($_REQUEST['numSerie'] == "") $numSerie = rand(1, 999);
     else $numSerie = $_REQUEST['numSerie'];
 
+    // Genero la tabla pasandole el título, si existe
     if ($_REQUEST['titulo'] == "") imprimeApuesta($numElegidos);
     else imprimeApuesta($numElegidos, $_REQUEST['titulo']);
 

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="estilo-acceso.css">
 </head>
 
 <body>
@@ -21,10 +22,14 @@
         header('location:Ejercicio2.php');
     }
 
+    $perfil = $_REQUEST['perfil'];
+
     $tarjeta = dameTarjeta($_REQUEST['perfil']);
 
     if (compruebaClave($tarjeta, $coords, $_REQUEST['contraseña'])) {
-        echo "<p>Acceso permitido</p>";
+        echo "<p>Acceso permitido como $perfil</p>";
+        echo "<br>";
+        echo imprimeTarjeta($tarjeta);
     } else {
         echo "<p>Acceso denegado</p>";
         echo "<a href='Ejercicio2.php'>Pincha aquí para volver</a>";

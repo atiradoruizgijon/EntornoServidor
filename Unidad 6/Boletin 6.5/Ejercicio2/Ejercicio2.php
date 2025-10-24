@@ -78,13 +78,13 @@
                     <td>111</td>
                     <td>444</td>
                     <td>666</td>
-                    <td>555</td>
+                    <td>718</td>
                 </tr>
                 <tr>
                     <td>2</td>
                     <td>313</td>
                     <td>999</td>
-                    <td>888</td>
+                    <td>543</td>
                     <td>777</td>
                     <td>222</td>
                 </tr>
@@ -117,10 +117,11 @@
     </main>
         <?php
             $letras = ["A", "B", "C", "D", "E"];
-            $coords =  [rand(1, 5), $letras[rand(0, 4)]];
+            $alet = rand(0, 4);
+            $coords =  [rand(0, 4), $alet];
             $cadenaCoords = base64_encode(serialize($coords));
 
-            echo "<p>Tienes que poner la contraseña de: ". $coords[0].$coords[1];  
+            echo "<p>Tienes que poner la contraseña de: ". ($coords[0] + 1).$letras[$alet];  
         ?>
         <form action="acceso.php" method="post">
             <select name="perfil">

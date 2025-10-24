@@ -9,8 +9,16 @@
     <?php
         if (isset($_REQUEST['texto'])) {
             $texto = $_REQUEST['texto'];
-            $texto = explode(" ", $texto);
-            echo "El número de palabras de tu texto es de ".count($texto). " palabras";
+            $texto = trim($texto);
+            $palabras = 0;
+
+            // Te lo he copiado de la corrección :/
+            do {
+                $palabras++;
+                $texto = trim(strstr($texto, " "));
+            } while ($texto != "");
+
+            echo "El número de palabras de tu texto es de ". $palabras . " palabras";
         }
     ?>
     <form action="" method="post">

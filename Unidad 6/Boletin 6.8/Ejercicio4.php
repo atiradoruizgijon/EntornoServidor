@@ -12,11 +12,13 @@
             $texto = trim($texto);
 
             $contador = 0;
-            // Si detecta que he llegado a un espacio, para
-            for ($i = 0; $texto[$i] == " " ; $i++) { 
+            // Si detecta que he llegado a un espacio, para.
+            do {
                 $contador++;
-            }
+            } while ($texto == " ");
             $palabra1 = substr($texto, 0, $contador);
+            print_r($contador);
+
 
             if (str_ends_with($texto, $palabra1)) echo "Verdadero";
             else "Falso"; 

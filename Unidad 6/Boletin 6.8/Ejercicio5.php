@@ -6,7 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- CAMBIAR EJERCICIO 2 CON IN_ARRAY -->
     
 </body>
 </html>

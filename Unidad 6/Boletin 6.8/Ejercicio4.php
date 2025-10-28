@@ -11,17 +11,14 @@
             $texto = $_REQUEST['texto'];
             $texto = trim($texto);
 
-            $contador = 0;
-            // Si detecta que he llegado a un espacio, para.
-            do {
-                $contador++;
-            } while ($texto == " ");
-            $palabra1 = substr($texto, 0, $contador);
-            print_r($contador);
+            $array = explode(" ", $texto);
 
+            if ($array[0] == $array[count($array) - 1]) echo "Verdadero";
+            else echo "Falso";
 
-            if (str_ends_with($texto, $palabra1)) echo "Verdadero";
-            else "Falso"; 
+            // no me funciona con esto :(
+            // if (str_ends_with($texto, $array[count($array) - 1])) echo "Verdadero";
+            // else echo "Falso"; 
         }
     ?>
     <form action="" method="get">

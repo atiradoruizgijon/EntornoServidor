@@ -13,6 +13,6 @@ function contarPalabras($texto)
 }
 
 function esPalabra($palabra) {
-    if (contarPalabras($palabra) != 1) return true;
+    if (contarPalabras($palabra) == 1) return true;
     return false;
 }

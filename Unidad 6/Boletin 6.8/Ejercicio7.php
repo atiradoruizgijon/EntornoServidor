@@ -9,7 +9,7 @@
     <?php
         include "funciones.php";
 
-        $texto = "Esto es un texto de prueba.";
+        $texto = "Esto es un texto de prueba";
         echo "Texto: ";
         echo $texto;
 
@@ -18,8 +18,14 @@
             $palabra = trim($palabra);
 
             if (esPalabra($palabra)) {
-                // array provisional
-                if (preg_grep($palabra, [2, 2]) == 1) echo "Contiene la palabra";
+                $array = explode(" ", $texto);
+                for ($i = 0 ; $i < count($array); $i++) {
+                    if ($array[$i] == $palabra) {
+                        echo "<p>La palabra está dentro del texto</p>";
+                        // paro el for
+                        $i == count($array);
+                    }
+                }
             } else {
                 echo "No has introducido una palabra.";
             }

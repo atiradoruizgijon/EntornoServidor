@@ -16,6 +16,8 @@
             do {
                 $palabras++;
                 $texto = trim(strstr($texto, " "));
+                // otra forma
+                // $frase = trim(substr($frase, strpos($frase, " ")));
             } while ($texto != "");
 
             echo "El número de palabras de tu texto es de ". $palabras . " palabras";

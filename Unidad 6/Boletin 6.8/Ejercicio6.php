@@ -7,22 +7,13 @@
 </head>
 <body>
     <?php
-      function contarPalabras($texto) {
-            $texto = trim($texto);
-            $palabras = 0;
-
-            do {
-                $palabras++;
-                $texto = trim(strstr($texto, " "));
-            } while ($texto != "");
-
-            return $palabras;
-        }
-
-        $parrafo = "Hola buenas tardes. Como estamos";
+    include "funciones.php";
+        // pongo varios espacios para comprobar que funciona correctamente
+        $parrafo = "Hola      buenas      tardes    .     Como      estamos";
 
         $parrafo = explode(".", $parrafo);
 
+        // funcion cogida del ejercicio 1, puesta en 'funciones.php'
         echo "La primera frase del párrafo tiene: ".contarPalabras($parrafo[0]);
         echo "<br>";
         echo "La segunda frase del párrafo tiene: ".contarPalabras($parrafo[1]);

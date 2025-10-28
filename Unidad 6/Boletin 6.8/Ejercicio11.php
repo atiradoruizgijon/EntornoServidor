@@ -18,19 +18,20 @@
             'C' => 100,
             'L' => 50,
             'X' => 10,
+            'V' => 5,
             'I' => 1
         ];
 
         if (isset($_REQUEST['numeroRom'])) {
-            $numRom = $_REQUEST['numeroRom'];
-            $numRom = trim($numRom);
+            $numRom = trim($_REQUEST['numeroRom']);
+
             // En caso de que se haya introducido en minusculas
             $numRom = strtoupper($numRom);
             $bandera = true;
             $suma = 0;
 
             for ($i = 0; $i < strlen($numRom); $i++) { 
-                if ($numRom[$i] != 'M' && $numRom[$i] != 'D' && $numRom[$i] != 'C' && $numRom[$i] != 'L' && $numRom[$i] != 'X' && $numRom[$i] != 'I') {
+                if ($numRom[$i] != 'M' && $numRom[$i] != 'D' && $numRom[$i] != 'C' && $numRom[$i] != 'L' && $numRom[$i] != 'X' && $numRom[$i] != 'I' && $numRom[$i] != 'V') {
                     $bandera = false;
                 } else {
                     $suma += $letras[$numRom[$i]];

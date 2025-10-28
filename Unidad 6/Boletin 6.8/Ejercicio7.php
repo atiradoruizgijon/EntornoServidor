@@ -10,8 +10,7 @@
         include "funciones.php";
 
         $texto = "Esto es un texto de prueba";
-        echo "Texto: ";
-        echo $texto;
+        echo "Texto: $texto";
 
         if (isset($_REQUEST['palabra'])) {
             $palabra = $_REQUEST['palabra'];

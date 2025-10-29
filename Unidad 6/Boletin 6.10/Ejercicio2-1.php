@@ -55,8 +55,10 @@
             if (!($arrayHor[1] >= 0 && $arrayHor[1] <= 59) || !($arrayHor[0] >= 0 && $arrayHor[0] <= 23) || !($arrayHor[2] >= 0 && $arrayHor[2] <= 59)) {
                 echo "No has introducido bien la hora.";
             } else {
+                $hora = date($arrayHor[0].":".$arrayHor[1].":".$arrayHor[2]);
                 switch ($formato) {
                     case 0:
+                        $hora = date("H:i:s", strtotime($hora));
                         $arrayHor = ceroHora($arrayHor);
                         $hora = $arrayHor[0].":".$arrayHor[1].":".$arrayHor[2];
                         break;

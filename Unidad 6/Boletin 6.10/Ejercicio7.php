@@ -22,7 +22,7 @@
     
             $edad = intval((strtotime($fecProx) - strtotime($fecNac)) / (60 * 60 * 24 * 365.25));
     
-            echo "Tu edad en esa fecha será de: ".$edad." años";
+            echo "Tu edad en esa fecha será de: ".$edad." año(s)";
         }
     ?>
 </body>

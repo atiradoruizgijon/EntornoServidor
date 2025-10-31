@@ -44,7 +44,7 @@
                 // 15 * 24 * 60 * 60 = 1.296.000 seg en 15 dias.
                 if ($diferencia > 1296000) {
                     $dinero = (($diferencia - 1296000) / (24 * 60 * 60)) * 2; 
-                    $dinero = round($dinero);
+                    $dinero = ceil($dinero);
                     echo "Tienes que pagar $dinero €";
                 } else echo "No tienes que pagar nada";
             }

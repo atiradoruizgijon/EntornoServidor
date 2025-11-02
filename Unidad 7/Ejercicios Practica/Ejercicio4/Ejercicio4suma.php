@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+if (isset($_REQUEST['usuario'])) $_SESSION['sesion'] = true;
+
+if (isset($_SESSION['sesion']) && $_SESSION['sesion'] == false) {
+    header("Location: Ejercicio4login.php");
+}
+
 if (!isset($_SESSION['numeros'])) {
     $_SESSION['numeros'] = 0;
 } else {
@@ -24,6 +30,11 @@ if (!isset($_SESSION['numeros'])) {
     <form action="" method="post">
         <input type="number" name="num" placeholder="Numero" autofocus>
         <input type="submit" value="Enviar">
+    </form>
+    <br>
+    <form action="Ejercicio4login.php" method="post">
+        <input type="hidden" name="cerrar">
+        <input type="submit" value="Cerrar Sesión">
     </form>
 
     <?php

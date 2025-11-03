@@ -1,0 +1,44 @@
+* {
+    font-family: sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+img {
+    display: block;
+    width: fit-content;
+    height: fit-content;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin-top: 2em;
+}
+ul {
+    width: fit-content;
+    margin: 2em 20%;
+    list-style: none;
+}
+img {
+    width: 600px;
+    height: fit-content;
+}
+li {
+    width: fit-content;
+    margin-top: 1em;
+    font-size: 1.6em;
+}
+h4 {
+    font-size: 2em;
+    margin-top: 3em;
+}
+.descripcion {
+    width: 300px;
+    margin-top: 1em;
+    font-size: 1.5em;
+}
+input {
+    padding: 10px 15px;
+    border-radius: 2px;
+    border: 2px solid rgb(0, 83, 177);
+    margin-top: 1em;
+    float: right;
+}

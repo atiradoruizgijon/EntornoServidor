@@ -1,5 +1,5 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) session_start();
 
 $productos = [
     ["Milan P1", 1, "css/img/boliAzul1.png"],
@@ -8,9 +8,15 @@ $productos = [
     ["Vball Azul", 0.8, "css/img/boliAzul2.png"],
     ["Bic Verde", 0.6, "css/img/boliVerde1.png"]
 ];
+
+$_SESSION['productos'] = $productos;
+
 // indice para, con unset, quitar el producto del carrito
 if (isset($_REQUEST['quitar'])) {
     unset($_SESSION['carrito'][$_REQUEST['quitar']]);
+    if (empty($_SESSION['carrito'])) {
+        session_destroy();
+    }
 }
 if (isset($_REQUEST['indice'])) {
     $escogido = $productos[$_REQUEST['indice']];
@@ -56,6 +62,10 @@ if (isset($_REQUEST['indice'])) {
         <form action="" method="post">
             <input type="hidden" name="indice" value="<?= $ind ?>">
             <input type="submit" value="Comprar">
+        </form>
+        <form action="producto.php">
+            <input type="hidden" name="indice" value="<?= $ind ?>">
+            <input type="submit" value="Detalles">
         </form>
         <?php
     }

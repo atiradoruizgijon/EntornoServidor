@@ -3,8 +3,11 @@ session_start();
 
 if (isset($_REQUEST['usuario'])) $_SESSION['sesion'] = true;
 
-if (isset($_SESSION['sesion']) && $_SESSION['sesion'] == false) {
+if (!isset($_SESSION['sesion']) || (isset($_SESSION['sesion']) && $_SESSION['sesion'] == false)) {
     header("Location: Ejercicio4login.php");
+    // aborta todo lo siguiente a ejecutar,
+    // ya que si nos vamos a ir a otra página, no vale de nada
+    exit();
 }
 
 if (!isset($_SESSION['numeros'])) {

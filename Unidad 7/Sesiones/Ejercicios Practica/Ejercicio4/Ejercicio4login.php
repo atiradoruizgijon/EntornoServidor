@@ -7,6 +7,9 @@
 
   if (isset($_SESSION['sesion']) && $_SESSION['sesion'] == true) {
     header("Location: Ejercicio4suma.php");
+    // aborta todo lo siguiente a ejecutar,
+    // ya que si nos vamos a ir a otra página, no vale de nada
+    exit();
   }
 ?>
 <!DOCTYPE html>

@@ -13,6 +13,7 @@ if (isset($_POST["actriz"])) {
 // Borrado de cookies y variables
 if (isset($_POST["borraCookies"])) {
     // -1 es lo que hace que se borre la cookie, el tiempo en negativo.
+    // no importa lo que pongamos como segundo argumento, "" es solo para rellenarlo
     setcookie("actriz", "", -1);
     setcookie("actor", "", -1);
     unset($actriz);

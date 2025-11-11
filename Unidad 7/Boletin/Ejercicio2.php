@@ -58,7 +58,7 @@
 </head>
 
 <body>
-    <h1>¿Tortilla con o sin cebolla?</h1>
+    <h1>Excursión de piragüismo. ¿Sí o no?</h1>
     <div>
         <h4>SI</h4>
         <?php

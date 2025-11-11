@@ -1,6 +1,10 @@
 <?php
 if (session_status() == PHP_SESSION_NONE) session_start();
 
+// valor por defecto de la página
+if (!isset($selec)) $selec = "white";
+if (isset($_REQUEST['selec'])) $selec = $_REQUEST['selec'];
+
 if (isset($_SESSION['colores'])) {
     if (isset($_REQUEST['color'])) {
         // recibo un array de 3 numeros aleatorios entre 0 y 255:
@@ -24,9 +28,6 @@ if (isset($_REQUEST['borrar'])) {
     session_destroy();
     $selec = "white";
 }
-// valor por defecto de la página
-if (!isset($selec)) $selec = "white";
-if (isset($_REQUEST['selec'])) $selec = $_REQUEST['selec'];
 
 ?>
 <!DOCTYPE html>

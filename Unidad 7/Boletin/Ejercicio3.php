@@ -3,6 +3,13 @@
 
     $hoy = date("d/m/Y");
     
+    if (isset($_COOKIE['libros'])) {
+        $libros = unserialize(base64_decode($_COOKIE['libros']));
+        $_SESSION['libros'] = $libros;
+        $deuda = $_COOKIE['deuda'];
+        $_SESSION['deuda'] = $deuda;
+    }
+
     if (isset($_REQUEST['borrar'])) {
         setcookie("libros", "", -1);
         session_destroy();
@@ -12,12 +19,6 @@
         unset($_SESSION['deuda']);
     }
 
-    if (isset($_COOKIE['libros'])) {
-        $libros = unserialize(base64_decode($_COOKIE['libros']));
-        $_SESSION['libros'] = $libros;
-        $deuda = $_COOKIE['deuda'];
-        $_SESSION['deuda'] = $deuda;
-    }
 
     // compruebo si es la primera vez que entro en la página
     if (!isset($_SESSION['libros'])) {
@@ -26,9 +27,9 @@
         $_SESSION['deuda'] = $deuda;
 
         $libros = [
-            ["El diario de John", "05-11-2025"],
-            ["Don Quijote de la Mancha", "02-11-2025"],
-            ["La vida de PI", "06-12-2025"]
+            ["El diario de John", "9/11/2025"],
+            ["Don Quijote de la Mancha", "10/11/2025"],
+            ["La vida de PI", "13/12/2025"]
         ];
         $_SESSION['libros'] = base64_encode(serialize($libros));
     }
@@ -102,9 +103,16 @@
 
                 // calculo los días de diferencia.
                 $dias = abs(floor((strtotime($libro[1] . " +7 days") - strtotime($hoy)) / 86400));
+                echo "<hr>";
+                echo strtotime($libro[1] . " +7 days");
+                echo "<br>";
+                echo strtotime($hoy);
+                echo "<br>";
+                echo (strtotime($libro[1] . " +7 days") - strtotime($hoy)) / 86400;
+                echo "<hr>";
                 $sancion = 0;   
 
-                if (strtotime($libro[1]) < strtotime($hoy)) {
+                if (strtotime($libro[1]) > strtotime($hoy)) {
                     // 86.400 seg/dia
                     $diasRestantes = $dias." día(s)";
                 } else {
@@ -132,7 +140,8 @@
     </table>
 
     <form action="" method="post">
-        <input type="submit" name="borrar" value="Borrar Cookies">
+        <input type="hidden" name="borrar" value="">
+        <input type="submit" value="Borrar Cookies">
     </form>
 </body>
 

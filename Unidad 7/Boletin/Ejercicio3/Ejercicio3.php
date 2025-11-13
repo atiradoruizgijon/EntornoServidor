@@ -6,9 +6,9 @@
   if (isset($_REQUEST['borrar'])) {
     setcookie("cesta", "", -1);
     setcookie("enCesta", "", -1);
+    session_destroy();
     unset($_SESSION['enCesta']);
     unset($_SESSION['cesta']);
-    session_destroy();
   }
   
   $productos = [
@@ -43,10 +43,6 @@
     $enCesta++;
     $cesta = añadirEnCesta($cesta, $_REQUEST['añadir'], $productos);
   }
-  if (isset($_REQUEST['producto'])) {
-    $enCesta++;
-    $cesta = añadirEnCesta($cesta, $_REQUEST['producto'], $productos);
-  }
   
   function añadirEnCesta($cesta, $indice, $productos) {
     $contiene = false;
@@ -65,7 +61,6 @@
   setcookie("cesta", base64_encode(serialize($cesta)), strtotime("+1 month"));
   setcookie("enCesta", $enCesta, strtotime("+1 month"));
 
-  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -101,7 +96,7 @@
       }
     ?>
   </table>
-
+      <a href="cesta.php">Ver la cesta</a>
   <form action="" method="post">
     <input type="hidden" name="borrar" value="">
     <input type="submit" value="Borrar Cookies">

@@ -17,6 +17,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilos.css">
     <title>Document</title>
+    <style>
+      * {
+        text-align: center;
+        margin: 1em;
+        font-size: 1.3em;
+      }
+    </style>
 </head>
 <body>
     <?php
@@ -28,7 +35,7 @@
     ?>
     <a href="Ejercicio3.php">Volver a la tienda de productos.</a>
     <form action="Ejercicio3.php" method="post">
-      <input type="hidden" value="<?= $_REQUEST['producto'] ?>">
+      <input type="hidden" value="<?= $_REQUEST['producto'] ?>" name="añadir">
       <input type="submit" value="Añadir al carrito">
     </form>
 </body>

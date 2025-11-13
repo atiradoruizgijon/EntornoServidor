@@ -120,7 +120,7 @@ setcookie("libros", base64_encode(serialize($libros)), strtotime("+1 year"));
             } else {
                 // si hemos sobrepasado la fecha de devolución, se aplica una sanción:
                 $sancion = $dias * 2;
-                $diasRestantes = "RETRASADO por $dias días: Sanción de " . $dias * 2 . "€";
+                $diasRestantes = "<span style='color: red;'>RETRASADO por $dias días: Sanción de " . $dias * 2 . "€</span>";
             }
 
         ?>

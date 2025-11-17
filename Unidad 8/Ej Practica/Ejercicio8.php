@@ -24,6 +24,6 @@
         <input type="text" name="linea" autofocus>
         <input type="submit" value="Añadir línea.">
     </form>
-    <a href="Ejercicio8texto.php">Terminar</a>
+    <a href="archivos/lineas.txt">Terminar</a>
 </body>
 </html>

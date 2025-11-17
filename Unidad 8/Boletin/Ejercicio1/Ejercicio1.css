@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 1.4rem;
+}
+body {
+    text-align: center;
+}
+td {
+    border: 2px solid black;
+    padding: 15px 25px;
+}
+table {
+    border-collapse: collapse;
+    margin: auto;
+}
+tr:nth-child(odd) {
+    background-color: lightcyan;
+}
+tr:first-of-type {
+    background-color: lightcoral;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    gap: 5px;
+    margin: 20px auto;
+}
+.boton {
+    padding: 10px;
+    width: 100%;
+}

@@ -9,10 +9,10 @@
     <form enctype="multipart/form-data" action="" method="get">
         <input type="file" name="fichero1"><br>
         <input type="file" name="fichero2"><br>
-        <input type="submit" value="Unificar">
+        <input type="submit" name="ficheros" value="Unificar">
     </form>
     <?php
-        if (isset($_REQUEST['fichero1'])) {
+        if (isset($_REQUEST['ficheros'])) {
             echo "Hola";
             // primer fichero
             move_uploaded_file($_FILES["fichero1"]["tmp_name"], "/archivos/" . $_FILES["fichero1"]["fichero1"]);

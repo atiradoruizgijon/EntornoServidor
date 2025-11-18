@@ -49,7 +49,7 @@ if (isset($_SESSION['animales'])) {
                     $linea = trim(fgets($fichero));
                     
                     // compruebo  si la línea es una fecha
-                    $es_fecha = strpos($linea, "/") != false;
+                    $es_fecha = mb_stripos($linea, "/") != false;
 
                     // si es una fecha:
                     if ($linea == $fecha_seleccionada) {
@@ -71,25 +71,19 @@ if (isset($_SESSION['animales'])) {
                 
                 $_SESSION['animales'] = base64_encode(serialize($animales));
             }
-
-            if (!empty($animales)) {
-        ?>
-            <tr>
+        }
+        if (!empty($animales)) {
+            echo "<tr>
                 <td>Nombre</td>
                 <td>Animal</td>
                 <td>Edad</td>
-            </tr>
-        <?php
-            }
-        }
-
-        if (!empty($animales)) {
-            foreach ($animales as $value) {
-                echo "<tr>
-                        <td>{$value[0]}</td>
-                        <td>{$value[1]}</td>
-                        <td>{$value[2]}</td>
-                    </tr>";
+            </tr>";
+            foreach ($animales as $animal) {
+                echo "<tr>";
+                foreach ($animal as $key => $value) {
+                    echo "<td>$value</td>";
+                }
+                echo "</tr>";
             }
         }
         ?>

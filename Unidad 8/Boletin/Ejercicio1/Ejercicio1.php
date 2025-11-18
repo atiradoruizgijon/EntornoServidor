@@ -86,7 +86,7 @@
         Animal:
         <input type="text" name="datos[]" required>
         Edad:
-        <input type="number" name="datos[]" min=0 required>
+        <input type="number" name="datos[]" min=1 required>
         <input class="boton" type="submit" value="Añadir">
     </form>
     <form action="" method="post">

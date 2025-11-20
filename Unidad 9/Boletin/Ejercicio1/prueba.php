@@ -14,6 +14,7 @@
 
       $empleado1->asigna("Juan", 1500);
       $empleado2->aPagar();
+      echo "<br>";
       $empleado2->asigna("Pab", 3600);
     ?>
 </body>

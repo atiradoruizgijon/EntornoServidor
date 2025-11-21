@@ -1,2 +1,4 @@
-ID1-Raton Logi-15-ratonlogi.webp-Ratón de logitech con bluetooth
-ID2-Teclado-11-teclado.png-Teclado gaming mecanico con RGB
+ID1-Raton-20-css/img/raton.jpg-Ratón ergonómico con el que tu mano no sufrirá en largas sesiones de trabajo.
+ID2-Teclado-30-css/img/teclado.jpg-Teclado ergonómico, para largas sesiones de trabajo. Perfecto para cuidar de tus muñecas.
+ID3-Monitor-100-css/img/monitor.png-Monitor LCD IPS de 27 pulgadas.
+ID4-Steam Controller-50-css/img/mandoSteam.webp-Nuevo mando de la compañía Valve, el Steam Controller. Siendo una de sus características más llamativas, sus dos paneles táctiles incorporados al mando, para controlar el cursor de tu ordenador.

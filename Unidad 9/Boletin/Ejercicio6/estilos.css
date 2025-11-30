@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    text-shadow: 3px 3px 10px rgb(0, 0, 0, 0.2);
+}
+
+html {
+    font-size: 30px;
+}
+
+header {
+    height: fit-content;
+    padding: 20px 0;
+    background-color: lightgray;
+    text-align: center;
+}
+
+main {
+    display: grid;
+    width: 60%;
+    margin: 2rem auto;
+    grid-template-areas: "tabla form";
+}
+
+h1 {
+    font-size: 1.4em;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 2rem auto;
+    grid-area: tabla;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+td {
+    padding: 10px 20px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+tr:first-child {
+    background-color: blanchedalmond;
+}
+
+span {
+    color: lightgreen;
+    filter: drop-shadow(1px 2px 0px black);
+}
+
+.añadir {
+    width: fit-content;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    grid-area: form;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+input[name=nombre], select {
+    padding: 10px 5px;
+}
+input[type=number], input[value=Recorrer] {
+    padding: 5px;
+}
+input[value="Añadir Vehiculo"] {
+    padding: 10px 0;
+}

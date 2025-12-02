@@ -1,6 +1,9 @@
 <?php
     if (session_status() == PHP_SESSION_NONE) session_start();
-
+    if (!isset($_SESSION['modeloCaro'])) {
+        $_SESSION['modeloCaro'] = "";
+        $_SESSION['precioCaro'] = 0;
+    }
     class Coche {
         private $matricula;
         private $modelo;
@@ -10,6 +13,11 @@
             $this->matricula = $matricula;
             $this->modelo = $modelo;
             $this->precio = $precio;
+
+            if ($precio > $_SESSION['precioCaro']) {
+                $_SESSION['precioCaro'] = $precio;
+                $_SESSION['modeloCaro'] = $modelo;
+            }
         }
 
         public function getMatricula() {
@@ -43,12 +51,11 @@
             $this->modelo
             ."</td><td>". 
             $this->precio
-            ." €</td>"
-            ;
+            ." €</td>";
         }
 
         static public function masCaro() {
-            return $_SESSION['modeloCaro']." ". $_SESSION['precioCaro'];
+            return $_SESSION['modeloCaro']." ". $_SESSION['precioCaro']." €";
         }
     }
 ?>

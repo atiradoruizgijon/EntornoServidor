@@ -34,7 +34,7 @@
     <main>
         <div class="cubilete">
             <h1>Cubilete de poker</h1>
-            <h2>Número de tiradas totales de todos los dados: <?= DadoPoker::getTiradasTotales() ?></h2>
+            <h2>Número de tiradas totales de todos los dados: <span><?= DadoPoker::getTiradasTotales() ?></span></h2>
             <ul>
                 <?php
                     foreach ($cubilete as $key => $value) {

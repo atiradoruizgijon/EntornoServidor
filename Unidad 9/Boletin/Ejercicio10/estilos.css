@@ -11,11 +11,14 @@ table {
 a {
     text-decoration: none;
     color: black;
+    display: block;
+    text-align: center;
+    width: 100px;
+    height: 100px;
 }
 td {
     background-position: center;
     background-size: cover;
-    padding: 50px;
 }
 .apagada {
     background-image: url(apagada.png);

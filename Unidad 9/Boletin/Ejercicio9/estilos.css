@@ -13,6 +13,12 @@ main {
     align-items: center;
 }
 
+h1 {
+    position: absolute;
+    top: 0;
+    text-align: center;
+}
+
 table {
     border-collapse: collapse;
 }

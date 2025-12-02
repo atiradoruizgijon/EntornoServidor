@@ -31,24 +31,27 @@
 </head>
 <body>
     <form action="" method="post">
-        <input type="text" name="ubicacion" placeholder="Ubicacion de la bombilla">
+        <input type="text" name="ubicacion" placeholder="Ubicacion de la bombilla" autofocus>
         <input type="submit" value="Añadir">
     </form>
     <table>
         <?php
             foreach ($bombillas as $key => $value) {
-                echo "<tr>";
+                if ($key == 0) {
+                    echo "<tr>";
+                }
                 if ($value->getEstado()) {
                     echo "<td class='encendida'>";
                 } else {
                     echo "<td class='apagada'>";
                 }
                 echo "<a href='prueba.php?ind=$key'>
-                ". $value->getUbicacion() ."<br>
-                ". $value->getPotenciaConsumida() ."
+                ". $value->getUbicacion() ."
                 </a>
                 </td>";
-                echo "</tr>";
+                if ($key%10 == 0 && $key != 0) {
+                    echo "</tr><tr>";
+                }
             }
         ?>
     </table>

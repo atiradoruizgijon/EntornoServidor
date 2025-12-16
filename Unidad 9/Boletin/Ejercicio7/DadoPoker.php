@@ -11,6 +11,7 @@
         public function __construct() {
             // para que tenga por defecto una cara aleatoria ya seleccionada
             $this->tira();
+            // para que no cuente la tirada:
             $_SESSION['tiradasTotales']--;
         }
 

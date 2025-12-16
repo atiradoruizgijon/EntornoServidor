@@ -14,7 +14,7 @@
         ];
     }
 
-    if (isset($_REQUEST['km'])) {
+    if (isset($_REQUEST['km']) && $_REQUEST['km'] != "") {
         $vehiculos[$_REQUEST['indice']]->recorre($_REQUEST['km']);
     }
 

@@ -33,6 +33,7 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>Coche más caro: <span><?= Coche::masCaro() ?></span></h1>
     <main>
         <table>
             <tr>

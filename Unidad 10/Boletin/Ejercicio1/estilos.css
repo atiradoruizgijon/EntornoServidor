@@ -1,0 +1,52 @@
+* {
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+    
+}
+table {
+    border-collapse: collapse;
+    margin: 1rem auto;
+}
+h1 {
+    text-align: center;
+    padding: 15px 0;
+    border-bottom: 2px solid black;
+}
+#cabecera > td {
+    font-weight: 700;
+    background-color: #6ac5e48d;
+    font-size: 1.4rem;
+}
+td {
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    min-width: 100px;
+    padding: 4px 8px 15px 8px;
+    font-size: 1rem;
+    font-weight: 200;
+}
+tr:nth-child(odd) {
+    background-color: #d3d3d356;
+}
+.botonSubmit {
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+}
+.submit {
+    background-color: rgb(69, 174, 69);
+}
+.modificar {
+    background-color: rgb(236, 233, 55);
+}
+.borrar {
+    background-color: rgb(224, 45, 45);
+}
+input[type=text] {
+    padding: 5px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}

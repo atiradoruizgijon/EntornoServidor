@@ -50,7 +50,7 @@
                 <td colspan="2">Kilometros Recorridos</td>
             </tr>
             <?php
-                foreach ($vehiculos as $key => $value) {
+                foreach ($vehiculos  as $key => $value) {
                     ?>
                         <tr>
                             <!-- get_class devuelve el nombre de la clase -->

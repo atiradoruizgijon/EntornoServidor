@@ -52,7 +52,7 @@
                         <input class="borrar botonSubmit" type="submit" value="❌ Eliminar">
                         <input name="eliminar" type="hidden" value="<?= $cliente->id ?>">
                     </form></td>
-                    <td><form action="" method="post">
+                    <td><form action="modificar.php" method="post">
                         <input class="modificar botonSubmit" type="submit" value="✏️ Modificar">
                         <input name="modificar" type="hidden" value="<?= $cliente->id ?>">
                     </form></td>

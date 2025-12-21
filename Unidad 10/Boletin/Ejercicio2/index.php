@@ -12,8 +12,8 @@
         if ($consulta->rowCount() > 0) {
             echo "<script>alert('El DNI ". $_POST['dni'] ." ya existe');</script>";
         } else {
-        $conexion->exec("INSERT INTO cliente (dni, nombre, direccion, telefono) VALUES
-        ('". $_REQUEST['dni'] ."','". $_REQUEST['nombre'] ."', '". $_REQUEST['direccion'] ."', '". $_REQUEST['tlf'] ."')");
+            $conexion->exec("INSERT INTO cliente (dni, nombre, direccion, telefono) VALUES
+            ('". $_REQUEST['dni'] ."','". $_REQUEST['nombre'] ."', '". $_REQUEST['direccion'] ."', '". $_REQUEST['tlf'] ."')");
         }
     }
 

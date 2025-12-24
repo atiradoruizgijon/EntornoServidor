@@ -2,6 +2,7 @@
     if (session_status() == PHP_SESSION_NONE) session_start();
     if (!isset($_SESSION['carrito'])) {
         $_SESSION['carrito'] = [];
+        $_SESSION['enCarrito'] = 0;
     }
 ?>
 <!DOCTYPE html>
@@ -19,7 +20,8 @@
     <main>
         <div class="main__cabecera">
             <h2>Productos</h2>
-            <h2><a href="carrito.php">Ver tu carrito (<?= count($_SESSION['carrito']) ?>)</a></h2>
+            <h2><a href="carrito.php">Ver tu carrito (<?= $_SESSION['enCarrito'] ?>)</a></h2>
+            <h2><a href="administracion.php">Panel de administración</a></h2>
         </div>
         <?php
                 try {
@@ -32,9 +34,11 @@
                 while ($boli = $consulta->fetchObject()) {
                     ?>
                     <section class="boligrafo">
-                        <picture>
-                            <img src="<?= $boli->imagen ?>" alt="Boligrafo">
-                        </picture>
+                        <figure>
+                            <a href="detalles.php?i=<?= $boli->id ?>">
+                                <img src="<?= $boli->imagen ?>" alt="Boligrafo">
+                            </a>
+                        </figure>
                         <p><?= $boli->descripcion ?></p>
                         <p class="precio">Precio: <?= $boli->precio ?> €</p>
                         <form action="compra.php" method="post">
@@ -45,6 +49,7 @@
                     <?php
                     // Final del while
                 }
+                $conexion = null;
             ?>
     </main>
 </body>

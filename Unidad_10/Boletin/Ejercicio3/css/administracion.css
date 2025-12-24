@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+a {
+    color: black;
+    font-size: 1.2em;
+}
+
+/* header */
+header {
+    background-color: burlywood;
+}
+
+header > h1 {
+    text-align: center;
+    padding: 30px 0;
+}
+
+/* fondo */
+body {
+    background-color: rgb(40, 40, 40);
+}
+
+/* article para insertar */
+article {
+    background-color: blanchedalmond;
+    padding: 50px 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.2rem;
+}
+article input {
+    font-size: 1.4rem;
+}
+article > form {
+    padding: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.251);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.412);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+textarea {
+    min-width: 560px;
+    max-width: 800px;
+    min-height: 50px;
+    max-height: 160px;
+    padding: 8px;
+    font-size: 1.4rem;
+}
+article > form > input {
+    padding: 8px 5px;
+}
+
+/* principal */
+main {
+    width: 70%;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 2px 2px 10px rgb(17, 17, 17);
+    background-color: rgb(226, 226, 226);
+}
+
+.boligrafo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px 0;
+    padding: 20px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+.boligrafo:nth-child(even) {
+    border-top: 2px solid rgb(211, 144, 0);
+    border-bottom: 2px solid rgb(211, 144, 0);
+}
+
+figure {
+    border: 1px solid black;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 160px;
+    width: 50%;
+    max-width: 600px;
+}
+
+img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    height: 100%;
+}
+
+.descripcion {
+    font-size: 1.2rem;
+    max-width: 350px;
+    max-height: 160px;
+    overflow: scroll;
+}
+
+.boton {
+    color: white;
+    padding: 10px;
+    font-size: 1.4rem;
+    border: 2px solid black;
+    border-radius: 14px;
+    margin: 4px auto;
+    display: block;
+    width: fit-content;
+}
+
+.baja {
+    background-color: rgb(181, 39, 39);
+}
+.baja:hover {
+    background-color: rgb(117, 37, 37);
+}
+
+.modificar {
+    background-color: rgb(227, 169, 23);
+}
+.modificar:hover {
+    background-color: rgb(118, 93, 29);
+}

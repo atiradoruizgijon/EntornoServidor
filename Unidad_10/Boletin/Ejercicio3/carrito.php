@@ -44,6 +44,7 @@
     <?php
         // fin del foreach
         }
+        $conexion = null;
     ?>
     </main>
 </body>

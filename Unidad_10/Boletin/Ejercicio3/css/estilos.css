@@ -14,6 +14,10 @@ h1 {
     text-align: center;
     padding: 30px 0;
 }
+a {
+    color: black;
+    text-decoration: none;
+}
 h2:first-child::after {
     content: "";
     width: 120px;
@@ -22,9 +26,8 @@ h2:first-child::after {
     display: block;
     background-color: rgb(149, 78, 65);
 }
-h2:last-child > a {
+h2:nth-child(2) > a, h2:last-child > a {
     color: white;
-    text-decoration: none;
     padding: 15px;
     background-image: linear-gradient(45deg, orange, yellow);
     border: 2px solid black;
@@ -32,7 +35,7 @@ h2:last-child > a {
     text-shadow: 2px 2px 4px black;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.433);
 }
-h2:last-child > a:hover {
+h2:nth-child(2) > a:hover, h2:last-child > a:hover {
     background-image: linear-gradient(160deg, yellow, orange);
     border-color: white;
 }
@@ -43,7 +46,7 @@ main {
     background-color: rgb(204, 199, 155);
     box-shadow: 3px 3px 10px black;
 }
-picture {
+figure {
     width: 100%;
     max-width: 600px;
     border-radius: 10px;

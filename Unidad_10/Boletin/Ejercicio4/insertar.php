@@ -12,6 +12,7 @@
 
         $conexion->exec($insercion);
 
+        $conexion = null;
         header('Location: index.php');
     } else {
         header('Location: index.php');

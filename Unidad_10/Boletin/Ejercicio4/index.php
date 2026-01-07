@@ -66,7 +66,7 @@
             </tr>
             <?php
                 $consulta = $conexion->query("SELECT * FROM productos LIMIT ". ($pagina - 1) * 5 .", 5");
-                while ($producto = $consulta->fetchObject()) {
+                while ($producto = $consulta->  fetchObject()) {
                     ?>
                         <tr>
                             <td><?= $producto->codigo ?></td>
@@ -83,25 +83,19 @@
                             </td>
                             <td>
                                 <form action="modificar.php" method="post">
-                                    <input type="hidden" name="ind">
-                                    <input type="submit" value="Modificar ✏️" class="modificar boton">
-                                </form>
-                            </td>
-                            <td>
-                                <form action="modificar.php" method="post">
-                                    <input type="hidden" name="ind">
+                                    <input type="hidden" name="modificar" value="<?= $producto->codigo ?>">
                                     <input type="submit" value="Modificar ✏️" class="modificar boton">
                                 </form>
                             </td>
                             <td>
                                 <form action="entrada.php" method="post">
-                                    <input type="hidden" name="ind">
+                                    <input type="hidden" name="entrada" value="<?= $producto->codigo ?>">
                                     <input type="submit" value="Entrada ◀️" class="entrada_salida boton">
                                 </form>
                             </td>
                             <td>
                                 <form action="salida.php" method="post">
-                                    <input type="hidden" name="ind">
+                                    <input type="hidden" name="salida" value="<?= $producto->codigo ?>">
                                     <input type="submit" value="Salida ▶️" class="entrada_salida boton">
                                 </form>
                             </td>
@@ -109,16 +103,18 @@
                     <?php
                     // fin del while
                 }
+
+                $conexion = null;
             ?>
         </table>
         
         <form action="insertar.php" method="post" class="form_añadir">
-            <input type="text" name="codigo" placeholder="Código">
-            <input type="text" name="descripcion" placeholder="Descripción">
-            <input type="number" name="precioCompra" placeholder="Precio de compra" min=0.01 step="0.01">
-            <input type="number" name="precioVenta" placeholder="Precio de venta" min=0.01 step="0.01">
-            <input type="number" name="stock" placeholder="Stock del producto" min=1 max=100000 step="1">
-            <input type="submit" class="añadir boton" value="Añadir">
+            <input required type="text" name="codigo" placeholder="Código">
+            <input required type="text" name="descripcion" placeholder="Descripción">
+            <input required type="number" name="precioCompra" placeholder="Precio de compra" min=0.01 step="0.01">
+            <input required type="number" name="precioVenta" placeholder="Precio de venta" min=0.01 step="0.01">
+            <input required type="number" name="stock" placeholder="Stock del producto" min=1 max=100000 step="1">
+            <input required type="submit" class="añadir boton" value="Añadir">
         </form>
     </main>
 </body>

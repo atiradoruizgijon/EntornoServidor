@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+h1 {
+    text-align: center;
+    padding: 25px 0;
+    font-size: 4rem;
+}
+
+h2 {
+    text-align: center;
+}
+
+hr {
+    margin-bottom: 25px;
+    height: 3px;
+    background-color: black;
+}
+
+main {
+    width: 80%;
+    margin: auto;
+}
+
+td {
+    padding: 10px 15px;
+    font-size: 1.6rem;
+    border: 1px solid black;
+}
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+}
+
+form {
+    margin: 20px auto;
+    width: fit-content;
+}
+
+input {
+    padding: 5px 10px;
+    font-size: 1.2rem;
+}
+
+input[type=submit] {
+    background-color: crimson;
+    color: white;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+input[type=submit]:hover {
+    background-color: darkorange;
+}
+
+#cabecera > td {
+    background-color: cadetblue;
+    font-weight: bold;
+}

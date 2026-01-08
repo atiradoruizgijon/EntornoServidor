@@ -1,10 +1,20 @@
 <?php
+    if (session_status() == PHP_SESSION_NONE) session_start();
+
     try {
         $conexion = new PDO("mysql:host=localhost;dbname=banco;charset=utf8", "root", "toor");
     } catch (PDOException $e) {
         echo "No se ha podido establecer conexión con el servidor de bases de datos.<br>";
         // die es abortar el script
         die("Error: " . $e->getMessage());
+    }
+
+    $totalPaginas = ceil(($conexion->query("SELECT id FROM cliente")->rowCount()) / 10);
+
+    if (!isset($_SESSION['pagina'])) {
+        $pagina = 1;
+    } else {
+        $pagina = $_SESSION['pagina'];
     }
 
     if (isset($_REQUEST['dni'])) {
@@ -16,31 +26,50 @@
             ('". $_REQUEST['dni'] ."','". $_REQUEST['nombre'] ."', '". $_REQUEST['direccion'] ."', '". $_REQUEST['tlf'] ."')");
         }
     }
-
+    
+    include_once "funciones.php";
+    if (isset($_REQUEST['avanzar'])) {
+        $pagina = avanzar($pagina, $totalPaginas);
+    }
+    if (isset($_REQUEST['retroceder'])) {
+        $pagina = retroceder($pagina);
+    }
+    
     if (isset($_REQUEST['eliminar'])) {
         $conexion->exec("DELETE FROM cliente WHERE id=". $_REQUEST['eliminar']);
     }
-?>
+    
+    $_SESSION['pagina'] = $pagina;
+    ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos.css">
-    <title>Mantenimiento de clientes</title>
-</head>
-<body>
-    <h1>Mantenimiento de Clientes</h1>
-    <table>
-        <tr id="cabecera">
-            <td>DNI</td>
-            <td>Nombre</td>
-            <td>Dirección</td>
-            <!-- para dejar espacio para los botones: -->
-            <td colspan="3">Teléfono</td>
-        </tr>
-        <?php
-            $consulta = $conexion->query("SELECT * FROM cliente");
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="estilos.css">
+        <title>Mantenimiento de clientes</title>
+    </head>
+    <body>
+        <h1>Mantenimiento de Clientes</h1>
+        <div class="paginado-container">
+            <form action="" method="post" class="paginado">
+                <input type="submit" name="retroceder" value="Retroceder">
+            </form>
+            <p><?= $pagina ?> / <?= $totalPaginas ?></p>
+            <form action="" method="post" class="paginado">
+                <input type="submit" name="avanzar" value="Avanzar">
+            </form>
+        </div>
+        <table>
+            <tr id="cabecera">
+                <td>DNI</td>
+                <td>Nombre</td>
+                <td>Dirección</td>
+                <!-- para dejar espacio para los botones: -->
+                <td colspan="3">Teléfono</td>
+            </tr>
+            <?php
+            $consulta = $conexion->query("SELECT * FROM cliente LIMIT ". ($pagina - 1) * 10 .", 10");
             while ($cliente = $consulta->fetchObject()) {
                 ?>
                 <tr>

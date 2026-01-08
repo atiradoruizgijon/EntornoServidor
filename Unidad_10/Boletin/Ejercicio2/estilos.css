@@ -50,3 +50,26 @@ input[type=text] {
     border: 1px solid lightgray;
     border-radius: 5px;
 }
+
+.paginado-container {
+    display: flex;
+    width: 25%;
+    justify-content: space-around;
+    margin: 25px auto;
+}
+
+.paginado {
+    width: fit-content;
+}
+
+.paginado > input, .paginado-container > p {
+    padding: 10px;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: cadetblue;
+}
+
+.paginado > input:hover, .botonSubmit:hover {
+    background-color: lightblue;
+}

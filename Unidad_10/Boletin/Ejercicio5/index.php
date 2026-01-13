@@ -140,24 +140,36 @@
             <input required type="submit" class="añadir boton" value="Añadir">
         </form>
     </main>
-    <section class="carrito">
-        <ul>
-            <?php
-            foreach ($carrito as $key => $producto) {
-                ?>
-                <li>
-                    <p>Código: <?= $producto[0] ?></p>
-                    <p>Cantidad: <?= $producto[1] ?></p>
-                    <form action="eliminarCarrito.php" method="post">
-                        <input type="hidden" name="eliminarCarrito" value="<?= $key ?>">
-                        <input type="submit" value="Eliminar del carrito">
-                    </form>
-                </li>
-                <?php
-            }
-            // fin del foreach
+
+    <?php
+        if (!empty($carrito)) {
+            echo '<hr><h1 class="carrito-title">Carrito</h1>';
+            echo "<form class='procesar' action='procesar.php' method='post'>
+                <input type='submit' value='Procesar Pedido' name='procesar'>
+            </form>";
+        }  
+    ?>
+    <ul class="carrito">
+        <?php
+        foreach ($carrito as $key => $producto) {
             ?>
-        </ul>
-    </section>
+            <li>
+                <p><b>Código:</b> <?= $producto[0] ?></p>
+                <p><b>Cantidad:</b> <?= $producto[1] ?></p>
+                <form action="eliminarCarrito.php" method="post">
+                    <input type="hidden" name="eliminarCarrito" value="<?= $key ?>">
+                    <input type="submit" value="Eliminar del carrito">
+                </form>
+            </li>
+            <?php
+        }
+        // fin del foreach
+        ?>
+    </ul>
+    <?php
+        // Como comprobar que hemos recibido una imagen:
+        // $_FILES['nombreFormulario']['name'] != "";
+        // Con esta comprobación miramos si nos ha llegado.
+    ?>
 </body>
 </html>

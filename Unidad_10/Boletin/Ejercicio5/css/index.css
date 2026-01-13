@@ -24,6 +24,7 @@ main {
 
 table {
     margin: auto;
+    width: 100%;
     border-collapse: collapse;
     font-size: 1.6rem;
 }
@@ -99,3 +100,52 @@ nav {
 
 /* Carrito */
 
+.carrito {
+    margin: 0 auto;
+    width: 60%;
+    display: grid;
+    gap: 1rem;
+    padding-bottom: 100px;
+}
+
+.carrito > li {
+    background-color: lightblue;
+    border-radius: 16px;
+    padding: 20px;
+    font-size: 1.6rem;
+    list-style-type: none;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.carrito > li:nth-child(even) {
+    background-color: aquamarine;
+}
+
+.carrito input {
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border-radius: 8px;
+}
+
+.carrito-title {
+    padding: 35px 0;
+}
+
+.procesar > input {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    font-size: 1.4rem;
+    color: white;
+    background-color: chocolate;
+    border: none;
+}
+
+.procesar > input:hover {
+    background-color: brown;
+}

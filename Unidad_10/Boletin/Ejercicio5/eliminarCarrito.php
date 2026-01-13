@@ -8,6 +8,6 @@
 
     unset($carrito[$_POST['eliminarCarrito']]);
     
-    $_SESSION['carrito'] = base64_encode(serialize($_SESSION['carrito']));
+    $_SESSION['carrito'] = base64_encode(serialize($carrito));
     header('Location: index.php');
 ?>

@@ -47,7 +47,7 @@
                     <img src="<?= $producto->imagen ?>" alt="Imagen Producto" class="figure__img">
                 </figure>
             </td>
-            <td><?= $producto->precio ?> €</td>
+            <td><?= $producto->precio ?>€</td>
             <td>
                 <form action="añadirCarrito.php" method="post">
                     <input type="hidden" value="<?= $producto->id ?>" name="comprar">

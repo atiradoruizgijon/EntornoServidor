@@ -1,5 +1,5 @@
 <?php
-    if (!isset($_POST['añadir'])) {
+    if (!isset($_POST['comprar'])) {
         header('Location: index.php');
     }
 
@@ -9,7 +9,7 @@
 
     include_once "funciones.php";
     $conexion = conectar("tienda");
-    $consulta = $conexion->query("SELECT * FROM productos WHERE id=$_POST[añadir]");
+    $consulta = $conexion->query("SELECT * FROM productos WHERE id=$_POST[comprar]");
     $conexion = null;
 
     $producto = $consulta->fetchObject();

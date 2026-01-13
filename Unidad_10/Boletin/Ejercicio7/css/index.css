@@ -1,0 +1,57 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: bordex-box;
+    font-family: sans-serif;
+}
+
+table {
+    width: 70%;
+    margin: 25px auto;
+    border-collapse: collapse;
+}
+
+h1 {
+    text-align: center;
+    padding: 25px;
+}
+
+tr:first-child {
+    background-color: lightcyan;
+    font-weight: bold;
+}
+
+td {
+    padding: 10px;
+    font-size: 1.4rem;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.table__figure {
+    width: 90%;
+    max-width: 500px;
+}
+
+.figure__img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+nav {
+    width: fit-content;
+    margin: 35px auto;
+}
+
+.boton {
+    padding: 10px;
+    background-color: rgb(106, 183, 29);
+    color: white;
+    text-decoration: none;
+}
+
+.boton:hover {
+    background-color: green;
+}

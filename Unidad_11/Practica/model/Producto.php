@@ -7,12 +7,12 @@
         private $precioVenta;
         private $stock;
 
-        public function __construct($codigo="", $descripcion="", $precioCompra="", $precioVenta="", $stock="") {
-            $this->$codigo;
-            $this->$descripcion;
-            $this->$precioCompra;
-            $this->$precioVenta;
-            $this->$stock;
+        public function __construct($codigo="", $descripcion="", $precioCompra="", $precioVenta="", $stock=0) {
+            $this->codigo = $codigo;
+            $this->descripcion = $descripcion;
+            $this->precioCompra = $precioCompra;
+            $this->precioVenta = $precioVenta;
+            $this->stock = $stock;
         }
 
         public function insert() {
@@ -42,7 +42,13 @@
             $conexion=null;
         }
 
-        public static function getOfertas() {
+        /**
+         * Obtiene todos los productos de la base de datos
+         * devolviendo un array con todos los
+         * productos de la base de datos.
+         * @return array Array con todos los productos
+         * */
+        public static function getProductos() {
             $conexion = AlmacenDB::connectDB();
             $seleccion = "SELECT * FROM productos";
             $consulta = $conexion->query($seleccion);
@@ -56,9 +62,9 @@
             return $productos;
         }
 
-        public static function getOfertaById($codigo) {
+        public static function getProductoById($codigo) {
             $conexion = AlmacenDB::connectDB();
-            $seleccion = "SELECT * FROM oferta WHERE codigo=$codigo";
+            $seleccion = "SELECT * FROM productos WHERE codigo=$codigo";
             $consulta = $conexion->query($seleccion);
 
             if ($consulta->rowCount()>0) {
@@ -71,6 +77,26 @@
                 $conexion=null;
                 return false;
             }
+        }
+
+        public function getMargenPrecio() {
+            return $this->precioVenta - $this->precioCompra;
+        }
+
+        public static function getPaginaProductos($paginaActual, $saltos) {
+            $conexion = AlmacenDB::connectDB();
+            $consulta = $conexion->query("SELECT * FROM productos LIMIT ". ($paginaActual - 1) * $saltos .", $saltos");
+            $productos = [];
+
+            while ($registro = $consulta->fetchObject()) {
+                $productos[] = new Producto($registro->codigo, $registro->descripcion, $registro->precioCompra, $registro->precioVenta, $registro->stock);
+            }
+            return $productos;
+        }
+
+        public static function getTotalProductos() {
+            $conexion = AlmacenDB::connectDB();
+            return $conexion->query("SELECT codigo FROM productos")->rowCount();
         }
         
         /**

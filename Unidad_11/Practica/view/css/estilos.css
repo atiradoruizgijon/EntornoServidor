@@ -45,10 +45,11 @@ tr:nth-child(odd) {
 .borrar {
     background-color: rgb(224, 45, 45);
 }
-input[type=text] {
+input[type=text], input[type=number] {
     padding: 5px;
     border: 1px solid lightgray;
     border-radius: 5px;
+    width: 100%;
 }
 
 .paginado-container {

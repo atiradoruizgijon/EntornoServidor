@@ -1,7 +1,12 @@
 <?php
     include_once "../Model/Articulo.php";
 
-    $articulo = new Articulo("", $_POST['titulo'], date("Y-m-d"), $_POST['articulo'], 0);
+    if (isset($_POST['titulo'])) {
+        $articulo = new Articulo("", $_POST['titulo'], date("Y-m-d"), $_POST['articulo'], 0);
+        $articulo->insert();
+        header('Location: ../Controller/index.php');
+        exit();
+    }
 
-    header('Location: ../Controller/index.php');
+    include "../View/nuevoArticulo_view.php";
 ?>

@@ -19,8 +19,8 @@ class Articulo
 
         public function insert()
         {
-                $conexion = AlmacenDB::connectDB();
-                $insert = "INSERT INTO articulo (titulo, fecha, articulo, likes) 
+                $conexion = BlogDB::connectDB();
+                $insert = "INSERT INTO articulos (titulo, fecha, articulo, likes) 
             VALUES ('$this->titulo', '$this->fecha', '$this->articulo', $this->likes)";
 
                 $conexion->exec($insert);
@@ -29,16 +29,16 @@ class Articulo
 
         public function delete()
         {
-                $conexion = AlmacenDB::connectDB();
-                $borrado = "DELETE FROM articulo WHERE id='$this->id'";
+                $conexion = BlogDB::connectDB();
+                $borrado = "DELETE FROM articulos WHERE id='$this->id'";
                 $conexion->exec($borrado);
                 $conexion = null;
         }
         public function update()
         {
                 // no hago update a la fecha porque siempre va a ser la misma
-                $conexion = AlmacenDB::connectDB();
-                $actualiza = "UPDATE articulo SET titulo='$this->titulo', articulo='$this->articulo',
+                $conexion = BlogDB::connectDB();
+                $actualiza = "UPDATE articulos SET titulo='$this->titulo', articulo='$this->articulo',
                 likes='$this->likes'
                 WHERE id='$this->id'";
 
@@ -48,8 +48,8 @@ class Articulo
 
         public static function getArticuloById($id)
         {
-                $conexion = AlmacenDB::connectDB();
-                $seleccion = "SELECT * FROM articulo WHERE id=$id";
+                $conexion = BlogDB::connectDB();
+                $seleccion = "SELECT * FROM articulos WHERE id=$id";
                 $consulta = $conexion->query($seleccion);
 
                 if ($consulta->rowCount() > 0) {
@@ -66,7 +66,7 @@ class Articulo
 
         public static function getArticulos()
         {
-                $conexion = AlmacenDB::connectDB();
+                $conexion = BlogDB::connectDB();
                 $consulta = $conexion->query("SELECT * FROM articulos");
                 $articulos = [];
 

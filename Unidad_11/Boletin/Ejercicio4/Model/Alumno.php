@@ -26,6 +26,51 @@
             $conexion = EscuelaDB::connectDB();
             $conexion->exec("INSERT INTO alumnos(nombre, apellidos, matricula, curso) 
             VALUES ('$this->nombre', '$this->apellidos', '$this->matricula', '$this->curso')");
+            
+            $conexion = null;
+        }
+
+        public function update() {
+            $conexion = EscuelaDB::connectDB();
+            $conexion->exec("UPDATE alumnos SET nombre='$this->nombre', apellidos='$this->apellidos', 
+            matricula='$this->matricula', curso='$this->curso' 
+            WHERE id=$this->id");
+
+            $conexion = null;
+        }
+
+        public function delete() {
+            $conexion = EscuelaDB::connectDB();
+            $conexion->exec("DELETE FROM alumnos WHERE id=$this->id");
+        }
+
+        public static function getAlumnos()
+        {
+                $conexion = EscuelaDB::connectDB();
+                $consulta = $conexion->query("SELECT * FROM alumnos");
+                $alumnos = [];
+
+                while ($registro = $consulta->fetchObject()) {
+                        $alumnos[] = new Alumno($registro->id, $registro->nombre, $registro->apellidos, $registro->matricula, $registro->curso);
+                }
+                return $alumnos;
+        }
+
+        public function getAlumnosById($id) {
+            $conexion = EscuelaDB::connectDB();
+            $seleccion = "SELECT * FROM alumnos WHERE id=$id";
+                $consulta = $conexion->query($seleccion);
+
+                if ($consulta->rowCount() > 0) {
+                        $registro = $consulta->fetchObject();
+                        $alumno = new Alumno($registro->id, $registro->nombre, $registro->apellidos, $registro->matricula, $registro->curso);
+                        $conexion = null;
+
+                        return $alumno;
+                } else {
+                        $conexion = null;
+                        return false;
+                }
         }
 
         /**

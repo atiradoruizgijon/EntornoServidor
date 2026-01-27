@@ -1,7 +1,7 @@
 * {
-    box-sizing: border-box;
     padding: 0;
     margin: 0;
+    box-sizing: bordex-box;
     font-family: sans-serif;
 }
 
@@ -16,24 +16,22 @@ html {
 
 .main__title {
     text-align: center;
-    margin: 25px auto;
+    font-size: 3rem;
 }
 
-.main__table {
-    margin: auto;
+.main__form {
+    width: 100%;
+    margin: 1rem auto;
+    max-width: 900px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-tr:nth-child(odd) {
-    background-color: rgb(245, 245, 245);
-}
-
-tr:first-child {
-    background-color: lightblue;
-}
-
-td, th {
-    padding: 15px;
-    border: 1px solid black;
+.form__input {
+    padding: 10px 5px;
+    font-size: 1.1rem;
 }
 
 .boton {
@@ -47,6 +45,8 @@ td, th {
     transition: 0.6s;
     width: fit-content;
     display: block;
+    font-size: 1.1rem;
+    margin: 20px auto;
 }
 
 .boton:hover {

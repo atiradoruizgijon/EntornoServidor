@@ -2,46 +2,42 @@
     include_once "../Model/EscuelaDB.php";
 
     class Alumno {
-        private $id;
+        private $matricula;
         private $nombre;
         private $apellidos;
-        private $matricula;
         private $curso;
 
         public function __construct(
-        $id = "",
+        $matricula = "",
         $nombre = "",
         $apellidos = "",
-        $matricula = "",
         $curso = "")
         {
-            $this->id = $id;
+            $this->matricula = $matricula;
             $this->nombre = $nombre;
             $this->apellidos = $apellidos;
-            $this->matricula = $matricula;
             $this->curso = $curso;
         }
 
         public function insert() {
             $conexion = EscuelaDB::connectDB();
-            $conexion->exec("INSERT INTO alumnos(nombre, apellidos, matricula, curso) 
-            VALUES ('$this->nombre', '$this->apellidos', '$this->matricula', '$this->curso')");
+            $conexion->exec("INSERT INTO alumnos(matricula, nombre, apellidos, curso) 
+            VALUES ('$this->matricula', '$this->nombre', '$this->apellidos', '$this->curso')");
             
             $conexion = null;
         }
 
         public function update() {
             $conexion = EscuelaDB::connectDB();
-            $conexion->exec("UPDATE alumnos SET nombre='$this->nombre', apellidos='$this->apellidos', 
-            matricula='$this->matricula', curso='$this->curso' 
-            WHERE id=$this->id");
+            $conexion->exec("UPDATE alumnos SET nombre='$this->nombre', apellidos='$this->apellidos', curso='$this->curso' 
+            WHERE matricula=$this->matricula");
 
             $conexion = null;
         }
 
         public function delete() {
             $conexion = EscuelaDB::connectDB();
-            $conexion->exec("DELETE FROM alumnos WHERE id=$this->id");
+            $conexion->exec("DELETE FROM alumnos WHERE matricula=$this->matricula");
         }
 
         public static function getAlumnos()
@@ -51,48 +47,49 @@
                 $alumnos = [];
 
                 while ($registro = $consulta->fetchObject()) {
-                        $alumnos[] = new Alumno($registro->id, $registro->nombre, $registro->apellidos, $registro->matricula, $registro->curso);
+                        $alumnos[] = new Alumno($registro->matricula, $registro->nombre, $registro->apellidos, $registro->curso);
                 }
                 return $alumnos;
         }
 
-        public function getAlumnosById($id) {
+        public static function getAlumnoByMatricula($matricula) {
             $conexion = EscuelaDB::connectDB();
-            $seleccion = "SELECT * FROM alumnos WHERE id=$id";
-                $consulta = $conexion->query($seleccion);
+            
+            $seleccion = "SELECT * FROM alumnos WHERE matricula='$matricula'";
+            $consulta = $conexion->query($seleccion);
 
-                if ($consulta->rowCount() > 0) {
-                        $registro = $consulta->fetchObject();
-                        $alumno = new Alumno($registro->id, $registro->nombre, $registro->apellidos, $registro->matricula, $registro->curso);
-                        $conexion = null;
 
-                        return $alumno;
-                } else {
-                        $conexion = null;
-                        return false;
-                }
+            if ($consulta->rowCount() > 0) {
+                $registro = $consulta->fetchObject();
+                $alumno = new Alumno($registro->matricula, $registro->nombre, $registro->apellidos, $registro->curso);
+                $conexion = null;
+                        
+                return $alumno;
+            } else {
+                $conexion = null;
+                return false;
+            }
         }
-
+                                
         /**
-         * Get the value of id
+         * Get the value of matricula
          */ 
-        public function getId()
+        public function getMatricula()
         {
-                return $this->id;
+                return $this->matricula;
         }
 
         /**
-         * Set the value of id
+         * Set the value of matricula
          *
          * @return  self
          */ 
-        public function setId($id)
+        public function setMatricula($matricula)
         {
-                $this->id = $id;
+                $this->matricula = $matricula;
 
                 return $this;
         }
-
         /**
          * Get the value of nombre
          */ 
@@ -133,25 +130,6 @@
                 return $this;
         }
 
-        /**
-         * Get the value of matricula
-         */ 
-        public function getMatricula()
-        {
-                return $this->matricula;
-        }
-
-        /**
-         * Set the value of matricula
-         *
-         * @return  self
-         */ 
-        public function setMatricula($matricula)
-        {
-                $this->matricula = $matricula;
-
-                return $this;
-        }
 
         /**
          * Get the value of curso

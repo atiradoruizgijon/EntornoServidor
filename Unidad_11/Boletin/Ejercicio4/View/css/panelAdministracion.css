@@ -23,11 +23,11 @@ html {
     margin: auto;
 }
 
-tr:nth-child(odd) {
+.table__tbody-tr:nth-child(odd) {
     background-color: rgb(245, 245, 245);
 }
 
-tr:first-child {
+.table__header-tr:first-child {
     background-color: lightblue;
 }
 

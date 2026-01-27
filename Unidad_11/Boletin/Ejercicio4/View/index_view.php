@@ -26,11 +26,11 @@
                     <td><?= $alumno->getApellidos() ?></td>
                     <td><?= $alumno->getMatricula() ?></td>
                     <td><?= $alumno->getCurso() ?></td>
+                    <td><a class="boton" href="../Controller/alumnoAsignaturas.php?matricula=<?= $alumno->getMatricula() ?>">Asignaturas</a></td>
                 </tr>
             <?php
             // fin del foreach
                 }
-                    
             ?>  
         </table>
     </main>

@@ -17,8 +17,8 @@
     }
 
     $data['alumno'] = Alumno::getAlumnoByMatricula($_REQUEST['matricula']);
-    $data['asignaturas'] = Alumno_Asignatura::getAsignaturasNoMatriculadas($_REQUEST['matricula']);
     $data['asignaturasAlumno'] = Alumno_Asignatura::getAlumnoAsignaturaByMatricula($_REQUEST['matricula']);
+    $data['asignaturas'] = Alumno_Asignatura::getAsignaturasNoMatriculadas($_REQUEST['matricula']);
 
     include "../View/alumnoAsignaturas_view.php";
 ?>

@@ -9,7 +9,10 @@
 <body>
     <main class="main">
         <h1 class="main__title">Alumnos</h1>
-        <a class="boton" href="../Controller/nuevoAlumno.php">Añadir alumno</a>
+        <nav class="botones">
+            <a class="boton" href="../Controller/nuevoAlumno.php">Añadir alumno</a>
+            <a class="boton" href="../Controller/panelAsignaturas.php">Administración de asignaturas</a>
+        </nav>
         <table class="main__table">
             <tr>
                 <th>Nombre</th>

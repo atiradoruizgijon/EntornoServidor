@@ -8,6 +8,8 @@
 </head>
 <body>
     <main class="main">
+        <h1 class="main__title">Asignaturas de <?= $data['alumno']->getNombre() ?></h1>
+        <a class="boton" href="../Controller/index.php">Volver</a>
         <table class="main__table">
             <thead class="table__header">
                 <tr class="table__header-tr">
@@ -24,7 +26,7 @@
                             <td class="table__body-tr"><?= $asignatura->getAbreviacion() ?></td>
                             <td class="table__body-tr"><?= $asignatura->getNombre() ?></td>
                             <td class="table__body-tr">
-                                <form action="../Controller/alumnoAsignatura.php" method="post">
+                                <form action="../Controller/alumnoAsignaturas.php" method="post">
                                     <input type="hidden" name="idAsignatura" value="<?= $asignatura->getId() ?>">
                                     <input type="hidden" name="matricula" value="<?= $_REQUEST['matricula'] ?>">
                                     <input style="background-color: red;" class="boton" type="submit" value="Eliminar X">

@@ -33,6 +33,7 @@
                         <td class="table__tbody-td"><?= $asignatura->getAbreviacion() ?></td>
                         <td class="table__tbody-td"><?= $asignatura->getNombre() ?></td>
                         <td class="table__tbody-td"><a class="boton" href="../Controller/panelAsignaturas.php?d=<?= $asignatura->getId() ?>">Eliminar</a></td>
+                        <td class="table__tbody-td"><a class="boton" href="../Controller/modificarAsignatura.php?m=<?= $asignatura->getId() ?>">Modificar</a></td>
                     </tr>
                 <?php  
                     }  

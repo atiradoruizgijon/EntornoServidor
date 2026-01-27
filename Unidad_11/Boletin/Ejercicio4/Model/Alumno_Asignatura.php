@@ -87,13 +87,20 @@
             return $asignaturas;
         }
 
+        /**
+         * devuelve un array con las asignaturas en las
+         * que no esta matriculado el alumno
+         * @param matricula matricula del alumno
+         */
         public static function getAsignaturasNoMatriculadas($matricula) {
             $conexion = EscuelaDB::connectDB();
 
-            $consulta = "SELECT a.*
-            FROM asignaturas a 
-            INNER JOIN alumno_asignatura aa ON a.id = aa.idAsignatura
-            WHERE NOT aa.matriculaAlumno = '$matricula'";
+            $consulta = "SELECT * FROM asignaturas
+            WHERE id NOT IN (
+                SELECT idAsignatura
+                FROM alumno_asignatura
+                WHERE matriculaAlumno='$matricula'
+                )";
             $asignaturas = [];
 
             $consulta = $conexion->query($consulta);

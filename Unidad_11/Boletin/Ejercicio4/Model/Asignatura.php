@@ -50,7 +50,7 @@
             return $asignaturas;
         }
 
-        public function getAsignaturaById($id) {
+        public static function getAsignaturaById($id) {
             $conexion = EscuelaDB::connectDB();
             $seleccion = "SELECT * FROM asignaturas WHERE id=$id";
             $consulta = $conexion->query($seleccion);

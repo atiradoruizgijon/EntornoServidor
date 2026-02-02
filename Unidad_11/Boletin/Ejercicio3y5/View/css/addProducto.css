@@ -1,0 +1,24 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: bordex-box;
+    font-family: sans-serif;
+}
+
+.main {
+    width: 80%;
+    margin: 25px auto;
+}
+
+.main__title {
+    text-align: center;
+    margin: 25px auto;
+}
+
+.main__form {
+    margin: 25px auto;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background-image: linear-gradient(45deg, rgb(63, 63, 236), rgb(97, 97, 237));
+}

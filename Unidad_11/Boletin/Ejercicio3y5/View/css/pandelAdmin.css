@@ -1,0 +1,87 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: bordex-box;
+    font-family: sans-serif;
+}
+
+html {
+    font-size: 26px;
+}
+
+:root {
+    --fondoForm: rgb(168, 177, 185);
+    --sombraForm: 8px 8px 10px rgba(0, 0, 0, 0.2);
+    --boton: rgb(0, 157, 255);
+}
+
+.main-admin {
+    width: 80%;
+    margin: auto;
+}
+
+.main__title {
+    text-align: center;
+    margin: 30px auto;
+}
+
+th {
+    background-color: lemonchiffon;
+}
+
+.table-admin {
+    border-collapse: collapse;
+    margin: 1rem auto;
+}
+
+.tbody__tr-admin:nth-child(even) {
+    background-color: rgb(228, 228, 228);
+}
+
+td, th {
+    padding: 15px 25px;
+    border: 2px solid black;
+}
+
+.td__figure {
+    max-width: 250px;
+}
+
+.figure__img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* formularios de la tabla, botones eliminar y modificar: */
+.td__form {
+    text-align: center;
+    margin: 10px auto;
+}
+
+.td__btt, .nav__btt-admin {
+    padding: 10px;
+    color: white;
+    background-color: var(--boton);
+    border-radius: 10px;
+    border: none;
+    transition: 0.5s all;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.td__btt:hover, .nav__btt-admin:hover {
+    color: var(--boton);
+    background-color: white;
+    transform: translateY(-5px);
+}
+
+/* nav añadir producto */
+
+.main__nav-admin {
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+}

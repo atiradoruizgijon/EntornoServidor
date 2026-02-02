@@ -1,0 +1,21 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: bordex-box;
+    font-family: sans-serif;
+}
+
+:root {
+    --fondoForm: rgb(168, 177, 185);
+    --sombraForm: 8px 8px 10px rgba(0, 0, 0, 0.2);
+    --boton: rgb(0, 157, 255);
+}
+
+html {
+    font-size: 26px;
+}
+
+.main-index {
+    width: 80%;
+    margin: auto;
+}

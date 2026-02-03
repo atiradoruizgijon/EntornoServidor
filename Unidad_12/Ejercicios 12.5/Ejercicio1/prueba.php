@@ -19,7 +19,7 @@
             $lon = -5.778502849091468;
             $datos = file_get_contents("https://api.openweathermap.org/data/2.5/weather?lat=37.18727781171898&lon=-5.778502849091468&appid=$APIKEY");
             echo "<h2>Datos en bruto (JSON):</h2><br>";
-            echo "$datos";
+            echo "<pre>";print_r($datos);echo "</pre>";
             echo "<br><hr>";
             echo "<h2>Datos:</h2>";
 

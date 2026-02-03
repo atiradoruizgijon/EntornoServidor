@@ -3,8 +3,8 @@
 
     if (isset($_POST['titulo'])) {
         $titulo = urlencode($_POST['titulo']);
-        $tipo = urlencode($_POST['tipo']);
-        $query = "s=$titulo&t=$tipo&apikey=$APIKEY";
+        $tipo = $_POST['tipo'];
+        $query = "s=$titulo&type=$tipo&apikey=$APIKEY";
         
         $datos = file_get_contents("http://www.omdbapi.com/?$query");
         $datos = json_decode($datos);
@@ -26,7 +26,7 @@
 <body>
     <!-- cabecera -->
     <header class="header">
-        <h1 class="header__title">API Peliculas</h1>
+        <h1 class="header__title">API Películas</h1>
     </header>
     
     <main class="main">
@@ -68,7 +68,7 @@
                         echo "<tr class='body_tr'>
                                 <td class='body__td'>$value->Title</td>
                                 <td class='body__td'>$value->Year</td>
-                                <td class='body__td'>".$TIPOS[$value->Year]."</td>
+                                <td class='body__td'>".$TIPOS[$value->Type]."</td>
                                 <td class='body__td'>
                                     <figure class='poster'>
                                         <img class='poster__img' src='$value->Poster}' alt='Poster de $value->Title'>

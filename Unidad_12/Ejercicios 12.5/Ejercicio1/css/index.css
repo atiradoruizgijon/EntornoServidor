@@ -5,7 +5,45 @@
     font-family: sans-serif;
 }
 
-main {
+html {
+    font-size: 26px;
+}
+
+.main {
     width: 80%;
     margin: auto;
 }
+
+.main__title {
+    text-align: center;
+    margin: 25px auto;
+}
+
+.main__form {
+    padding: 10px;
+    border: 2px solid black;
+    width: fit-content;
+    margin: 10px auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.form__select, .form__submit {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    background-color: green;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.form__select:hover, .form__submit:hover {
+    background-color: white;
+    color: green;
+}
+
+
+

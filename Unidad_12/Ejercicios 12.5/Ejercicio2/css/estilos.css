@@ -1,0 +1,104 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: bordex-box;
+    font-family: sans-serif;
+}
+
+:root {
+    --colorBody: rgb(237, 237, 237);
+    --sombraCaja: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+html {
+    font-size: 22px;
+}
+
+body {
+    background-color: var(--colorBody);
+}
+
+.main {
+    width: 80%;
+    min-width: fit-content;
+    padding: 35px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: var(--sombraCaja);
+}
+
+.header {
+    padding: 25px 0;
+}
+
+.header__title {
+    font-size: 3rem;
+    text-align: center;
+}
+
+
+/* contenedor barra de busqueda: */
+.main__form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.form__submit {
+    width: fit-content;
+    color: white;
+    background-color: orange;
+    border-radius: 4px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    transition: all 0.2s;
+    cursor: crosshair;
+}
+
+.form__submit:hover {
+    background-color: white;
+    color: orange;
+}
+
+.form__submit, .form__input, .form__select {
+    font-size: 1.2rem;
+    padding: 10px;
+}
+
+
+/* tabla */
+.main__table {
+    border-collapse: collapse;
+    margin: 5vh auto;
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+/* cabecera tabla */
+.table__header {
+    background-color: lightsalmon;
+}
+
+.header__th {
+    padding: 10px 20px;
+}
+
+/* cuerpo tabla */
+.body__tr:nth-child(even) {
+    background-color: rgb(255, 255, 232);
+}
+
+.body__td {
+    padding: 10px 20px;
+}
+
+/* poster */
+.poster {
+    max-width: 250px;
+}
+
+.poster__img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
